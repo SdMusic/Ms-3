@@ -9,13 +9,17 @@
 }
 
 .jumbotron {
-  color: white;
-  background-image: url("../images/Homepage-bg.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 80vh;
-  font-family: "Designer";
+    color: white;
+    background-image: url("../images/Homepage-bg.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 60vh;
+    font-family: "Designer";
+}
+
+h1 {
+    font-family: "Designer";
 }
 
 .btn-red {
