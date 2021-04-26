@@ -11,11 +11,35 @@
     <title>The Cocktail Database</title>
 </head>
 <body>
+    <div id="container">
     <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Navbar</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+                    aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                    <div class="navbar-nav w-100 flex-row-reverse">
+                        <a class="nav-link active" aria-current="page" href="{{url_for('home_page')}}">Home</a>
+                        <a class="nav-link" href="#">Features</a>
+                        <a class="nav-link" href="#">Pricing</a>
+                    </div>
+                </div>
+            </div>
+            </nav>
         <div class="jumbotron jumbotron-fluid">
             <div class="container">
-                <h1 class="display-4">The Cocktail Database</h1>
-                <p>This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+                <h1 class="display-1">The Cocktail Database</h1>
+                <p style="max-width: 50%;">Antoine Amédée Peychaud, a French
+                    apothecary in New Orleans, served brandy
+                    with his bitters (yes, those Peychaud bitters…)
+                    in eggcups in the late 18th century. As a result,
+                    the word "cocktail" is thought to have come
+                    from a mispronunciation of the French word
+                    for eggcup, 'coquetier' (pronounced cocktay
+                    in English)</p>
             </div>
         </div>
     </header>
@@ -27,5 +51,6 @@
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
     {% block scripts %}
     {% endblock %}
+    </div>
 </body>
 </html>

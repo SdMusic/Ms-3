@@ -1,3 +1,8 @@
+#container {
+    max-width: 1600px;
+    margin: auto;
+}
+
 @font-face {
     font-family: "Designer";
     src: url("../fonts/Designer.woff") format("woff"),
