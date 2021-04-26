@@ -17,3 +17,7 @@
   height: 80vh;
   font-family: "Designer";
 }
+
+.btn-red {
+    background-color: darkred;
+}
