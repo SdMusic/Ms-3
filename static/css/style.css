@@ -16,6 +16,7 @@
     background-size: cover;
     height: 60vh;
     font-family: "Designer";
+    font-weight: 800;
 }
 
 h1 {
@@ -24,4 +25,12 @@ h1 {
 
 .btn-red {
     background-color: darkred;
+}
+
+.stack-top{
+        z-index: 9;
+        margin: 20px;
+        position: fixed;
+        right: 0;
+        top: 20%;
 }
