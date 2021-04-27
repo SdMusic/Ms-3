@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="row stack-top mt-3">
+   <div class="col-md-6 offset-md-3">
+       <h1 class="display-2 d-flex justify-content-center">Log In</h1>
+   </div>
+    <div class="col-md-6 offset-md-3">
+        <form method="POST" action="{{ url_for('login') }}">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Username</span>
+                <input id="username" name="username" type="text" minlength="5" maxlength="16" class="form-control"
+                    placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Password</span>
+                <input type="password" id="password" name="password" minlength="5" maxlength="16"
+                    pattern="^[a-zA-Z0-9]{5,15}$" class="form-control" placeholder="Password"
+                    id="exampleInputPassword1">
+            </div>
+            <div class="d-grid gap-2 mb-3">
+                <button class="btn btn-red" type="submit">Submit</button>
+            </div>
+    </div>
+</div>
+</div>
+
+<!-- add a link to register-->
+
+{% endblock %}
