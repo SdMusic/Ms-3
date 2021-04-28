@@ -91,8 +91,19 @@ def logout():
     return redirect(url_for("login"))
 
 
-@app.route("/add_drink")
+@app.route("/add_drink", methods=["GET", "POST"])
 def add_drink():
+    if request.method == "POST":
+        drinks = {
+            "category_name": request.form.get("category_name"),
+            "drinks_name": request.form.get("drinks_name"),
+            "drinks_description": request.form.get("drinks_description"),
+            "created_by": session["user"]
+        }
+        mongo.db.drinks.insert_one(drinks)
+        flash("Great Creation!")
+        return redirect(url_for("add_drink"))
+
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("add_drink.html", categories=categories)
 

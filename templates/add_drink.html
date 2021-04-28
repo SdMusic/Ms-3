@@ -2,27 +2,28 @@
 {% block content %}
 
 <h1 class="display-2 d-flex justify-content-center">Create Cocktail</h1>
-<form class="w-50 m-auto" method="POST" action="">
+<form class="w-50 m-auto" method="POST" action="{{ url_for('add_drink') }}">
+    <div class="input-group mb-3">
+        <div class="input-group-prepend w-50">
+            <label class="input-group-text" for="category_name">Choose you Spirit</label>
+        </div>
+        <select class="custom-select w-50" name="category_name" id="category_name" required>
+            {% for category in categories %}
+            <option selected value="{{ category.category_name }}">{{ category.category_name }}</option>
+            {% endfor %}
+        </select>
+    </div>
     <div class="form-group mb-3">
         <label for="drinks_name">Cocktail Name</label>
         <input type="text" class="form-control" id="drinks_name" name="drinks_name" minlength="5" maxlength="60"
             placeholder="The San Diego Slammer??" required>
     </div>
-    <div class="input-group mb-3">
-        <div class="input-group-prepend w-50">
-            <label class="input-group-text" for="category_name">Choose you Spirit</label>
-        </div>
-        <select class="custom-select w-50" id="category_name" required>
-            
-            {% for category in categories %}
-                <option selected value="{{ category.category_name }}">{{ category.category_name }}</option>
-            {% endfor %}
-        </select>
-    </div>
-    <div class="form-group">
+    <div class="form-group mb-3">
         <label for="drinks_description">Description</label>
-        <textarea class="form-control" id="drinks_description" rows="3" minlength="5" maxlength="60"
+        <textarea class="form-control" id="drinks_description" name="drinks_description" rows="3" minlength="5" maxlength="60"
             placeholder="This will F*#k you up!!" required></textarea>
     </div>
+    <button type="submit" class="btn btn-red w-100">Create</button>
+</form>
 
 {% endblock %}
