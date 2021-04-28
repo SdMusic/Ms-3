@@ -98,13 +98,15 @@ def add_drink():
             "category_name": request.form.get("category_name"),
             "drinks_name": request.form.get("drinks_name"),
             "drinks_description": request.form.get("drinks_description"),
+            "drinks_method": request.form.get("drinks_method"),
             "created_by": session["user"]
         }
         mongo.db.drinks.insert_one(drinks)
         flash("Great Creation!")
         return redirect(url_for("add_drink"))
 
-    categories = mongo.db.categories.find().sort("category_name", 1)
+    categories = mongo.db.categories.find().sort("category_name", 1),
+
     return render_template("add_drink.html", categories=categories)
 
 
