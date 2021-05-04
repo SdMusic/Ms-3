@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- COCKTAIL CARD -->
+    <div class="card">
+        <div class="row">
+            <!-- returns user to all Recipes page -->
+            <a href="{{ url_for('display_drinks') }}">Back to All Recipes</a>
+        </div>
+        <div class="row">
+            <h2>{{ recipe.strDrink }}            </h2>
+            <p>
+                Type of Cocktail: {{ recipe.category_name }} <br>
+                <em><small>By: {{ recipe.created_by }}</small></em>
+            </p>
+        </div>
+
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <img src="{{ recipe.strDrinkThumb }}" class="card-img-top" alt="{{ recipe.strDrink }} Image">
+            </div>
+            <div class="col-lg-6 recipe-ingredients">
+                <h3>Ingredients:</h3>
+                
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="recipe-steps">
+                <h3>Steps:</h3>
+                
+                    <ul>
+                        {{ recipe.strInstructions }}
+                    </ul>
+               
+            </div>
+        </div>
+        <!-- End of COCKTAIL CARD -->
+
+
+{% endblock %}

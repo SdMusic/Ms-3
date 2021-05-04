@@ -118,6 +118,17 @@ def display_drinks():
     return render_template("display_drinks.html", cat_gin=cat_gin)
 
 
+@app.route("/drink_recipe/<recipe_id>")
+def drink_recipe(recipe_id):
+    """
+    Recipe Page; brings user to each cocktail's
+    own recipe page. searches db for correct
+    drink id.
+    """
+    recipe = mongo.db.drinks.find_one({"idDrink": (recipe_id)})
+    return render_template("drink_recipe.html", recipe=recipe)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
         port=int(os.environ.get("PORT")),
