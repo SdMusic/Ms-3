@@ -58,9 +58,9 @@ def login():
 
         if existing_user:
             if check_password_hash(
-                existing_user["password"], request.form.get("password")):
-                    session["user"] = request.form.get("username").lower()
-                    flash("Welcome, {}".format(request.form.get("username")))
+                    existing_user["password"], request.form.get("password")):
+                session["user"] = request.form.get("username").lower()
+                flash("Welcome, {}".format(request.form.get("username")))
             else:
                 flash("Your Password and/or Username is Incorrect")
                 return redirect(url_for("login"))
@@ -108,6 +108,14 @@ def add_drink():
     categories = mongo.db.categories.find().sort("category_name", 1),
 
     return render_template("add_drink.html", categories=categories)
+
+
+@app.route("/display_drinks.html", methods=["GET"])
+def display_drinks():
+
+    cat_gin = mongo.db.cat_gin.find()
+
+    return render_template("display_drinks.html", cat_gin=cat_gin)
 
 
 if __name__ == "__main__":
