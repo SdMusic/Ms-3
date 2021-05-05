@@ -37,21 +37,14 @@
             <div class="input-group-prepend">
                 <span class="input-group-text" for="ingedient_name">Ingredient and measure</span>
             </div>
-            <select class="custom-select w-25" name="ingredient_name" id="ingredient_name" required>
-                    <option value="1">Lemon</option>
-                    <option value="2">Lime</option>
-                    <option value="3">Tonic</option>            
-            </select>
-            <input type="text" class="form-control" aria-label="Text input with dropdown button">
-            <select class="custom-select w-25" name="ingredient_name" id="ingredient_name" required>
-                    <option value="1">Oz</option>
-                    <option value="2">Ml</option>
-                    <option value="3">1/2</option>            
-            </select>
+            <select class="custom-select w-50" name="ingredient_name" id="ingredient_name" required>
+                    {% for ingredient in ingredients %}
+                        <option selected value="{{ ingredient.strIngredient }}">{{ ingredient.strIngredient }}</option>
+                    {% endfor %}
+                </select>
         </div>
     </div>
     <button type="submit" class="btn btn-red w-100">Create</button>
     </form>
-    
 </div>
 {% endblock %}

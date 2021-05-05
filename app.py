@@ -78,7 +78,8 @@ def profile(username):
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        drinks = mongo.db.drinks.find()
+        return render_template("profile.html", username=username, drinks=drinks)
 
     return redirect(url_for("login"))
 
@@ -95,7 +96,7 @@ def logout():
 def add_drink():
     if not session.get("user"):
         render_template("templates/error_handlers/404.html")
-        
+
     if request.method == "POST":
         drinks = {
             "category_name": request.form.get("category_name"),
