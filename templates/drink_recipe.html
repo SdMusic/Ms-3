@@ -2,40 +2,35 @@
 {% block content %}
 
 <!-- COCKTAIL CARD -->
-    <div class="card">
-        <div class="row">
-            <!-- returns user to all Recipes page -->
-            <a href="{{ url_for('display_drinks') }}">Back to All Recipes</a>
+<div class="card m-auto w-75">
+    <div class="row">
+        <!-- returns user to all Recipes page -->
+        <a class="btn m-auto w-75 btn-red" href="{{ url_for('display_drinks') }}">Back to All Recipes</a>
+    </div>
+    <div class="row">
+        <h1 class="display-1 d-flex justify-content-center">{{ recipe.strDrink }} </h1> <br>
+        <h2 class="d-flex justify-content-center pb-5">From our {{ recipe.category_name }} collection</h2>
+        <hr>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-lg-6">
+            <img src="{{ recipe.strDrinkThumb }}" class="card-img-top" alt="{{ recipe.strDrink }} Image">
         </div>
-        <div class="row">
-            <h2>{{ recipe.strDrink }}            </h2>
-            <p>
-                Type of Cocktail: {{ recipe.category_name }} <br>
-                <em><small>By: {{ recipe.created_by }}</small></em>
-            </p>
-        </div>
-
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <img src="{{ recipe.strDrinkThumb }}" class="card-img-top" alt="{{ recipe.strDrink }} Image">
-            </div>
-            <div class="col-lg-6 recipe-ingredients">
+        <div class="col-lg-6">
+            <div class="row">
                 <h3>Ingredients:</h3>
-                
             </div>
-        </div>
-
-        <div class="row">
-            <div class="recipe-steps">
+            <div class="row">
                 <h3>Steps:</h3>
-                
-                    <ul>
-                        {{ recipe.strInstructions }}
-                    </ul>
-               
+                <ul class="w-75">
+                    {{ recipe.strInstructions }}
+                </ul>
+                <p>Served in a {{ recipe.strGlass }}</p>
             </div>
         </div>
-        <!-- End of COCKTAIL CARD -->
+    </div>
+</div>
+    <!-- End of COCKTAIL CARD -->
 
 
-{% endblock %}
+    {% endblock %}

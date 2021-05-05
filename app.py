@@ -93,6 +93,9 @@ def logout():
 
 @app.route("/add_drink", methods=["GET", "POST"])
 def add_drink():
+    if not session.get("user"):
+        render_template("templates/error_handlers/404.html")
+        
     if request.method == "POST":
         drinks = {
             "category_name": request.form.get("category_name"),
@@ -101,13 +104,15 @@ def add_drink():
             "drinks_method": request.form.get("drinks_method"),
             "created_by": session["user"]
         }
+
         mongo.db.drinks.insert_one(drinks)
         flash("Great Creation!")
-        return redirect(url_for("add_drink"))
+        return redirect(url_for("profile", username=session['user']))
 
-    categories = mongo.db.categories.find().sort("category_name", 1),
-
-    return render_template("add_drink.html", categories=categories)
+    ingredients = mongo.db.ingredients.find()
+    categories = mongo.db.categories.find().sort("category_name", 1)
+    return render_template(
+        "add_drink.html", categories=categories, ingredients=ingredients)
 
 
 @app.route("/display_drinks.html", methods=["GET"])
@@ -127,6 +132,21 @@ def drink_recipe(recipe_id):
     """
     recipe = mongo.db.drinks.find_one({"idDrink": (recipe_id)})
     return render_template("drink_recipe.html", recipe=recipe)
+
+
+@app.errorhandler(403)
+def forbidden(e):
+    return render_template("/error_handlers/403.html"), 403
+
+
+@app.errorhandler(404)
+def not_found(e):
+    return render_template("/error_handlers/404.html"), 404
+
+
+@app.errorhandler(500)
+def server_error(e):
+    return render_template("/error_handlers/500.html"), 500
 
 
 if __name__ == "__main__":
