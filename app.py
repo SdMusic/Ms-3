@@ -232,6 +232,17 @@ def display_drinks():
         "display_drinks.html",
         drinks=drinks)
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    """
+    Search bar; user can search by cocktail name or category.
+    """
+    # pulls input from search bar
+    search = request.form.get("search")
+    # searches text index
+    drinks = mongo.db.drinks.find({"$text": {"$search": search}})
+    # user brought to cocktails page with filtered results
+    return render_template("display_drinks.html", drinks=drinks)
 
 @app.route("/drink_recipe/<recipe_id>")
 def drink_recipe(recipe_id):

@@ -1,6 +1,25 @@
 {% extends "base.html" %}
 {% block content %}
 
+<div class="row justify-content-center mt-2">
+        <div class="col-sm-12 col-md-10">
+            <!-- search bar form -->
+            <form class="search-bar" method="POST" action="{{ url_for('search') }}">
+                <!-- search bar -->
+                <div class="input-group w-57">
+                    <a href="{{ url_for('display_drinks') }}" class="btn btn-red">Reset</a>
+                    <span class="input-group-text border-0" id="search-addon">
+                        <i class="fas fa-search"></i>
+                    </span>
+                    <input type="search" class="form-control rounded" placeholder="Search for a cocktail or ingredient..." aria-label="Search"
+                    aria-describedby="search-addon" name="search" id="search" minlength="3" required/>
+                <!-- search submit button -->
+                    <button type="submit" class="btn btn-red">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
 <h1 class="display-1 d-flex justify-content-center">All Drinks</h1>
 <div class="row">
                 {% for drink in drinks %}
