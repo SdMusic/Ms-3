@@ -100,9 +100,40 @@ def add_drink():
     if request.method == "POST":
         drinks = {
             "category_name": request.form.get("category_name"),
-            "drinks_name": request.form.get("drinks_name"),
+            "strDrink": request.form.get("drinks_name"),
             "drinks_description": request.form.get("drinks_description"),
-            "drinks_method": request.form.get("drinks_method"),
+            "strInstructions": request.form.get("drinks_method"),
+            "strDrinkThumb": request.form.get("img_url"),
+            "strIngredient1": request.form.get("ing1"),
+            "strIngredient2": request.form.get("ing2"),
+            "strIngredient3": request.form.get("ing3"),
+            "strIngredient4": request.form.get("ing4"),
+            "strIngredient5": request.form.get("ing5"),
+            "strIngredient6": request.form.get("ing6"),
+            "strIngredient7": request.form.get("ing7"),
+            "strIngredient8": request.form.get("ing8"),
+            "strIngredient9": request.form.get("ing9"),
+            "strIngredient10": request.form.get("ing10"),
+            "strIngredient11": request.form.get("ing11"),
+            "strIngredient12": request.form.get("ing12"),
+            "strIngredient13": request.form.get("ing13"),
+            "strIngredient14": request.form.get("ing14"),
+            "strIngredient15": request.form.get("ing15"),
+            "strMeasure1": request.form.get("measure1"),
+            "strMeasure2": request.form.get("measure2"),
+            "strMeasure3": request.form.get("measure3"),
+            "strMeasure4": request.form.get("measure4"),
+            "strMeasure5": request.form.get("measure5"),
+            "strMeasure6": request.form.get("measure6"),
+            "strMeasure7": request.form.get("measure7"),
+            "strMeasure8": request.form.get("measure8"),
+            "strMeasure9": request.form.get("measure9"),
+            "strMeasure10": request.form.get("measure10"),
+            "strMeasure11": request.form.get("measure11"),
+            "strMeasure12": request.form.get("measure12"),
+            "strMeasure13": request.form.get("measure13"),
+            "strMeasure14": request.form.get("measure14"),
+            "strMeasure15": request.form.get("measure15"),
             "created_by": session["user"]
         }
 
@@ -116,12 +147,76 @@ def add_drink():
         "add_drink.html", categories=categories, ingredients=ingredients)
 
 
+@app.route("/edit_drink/<recipe_id>", methods=["GET", "POST"])
+def edit_drink(recipe_id):
+    """
+    Edit Cocktail; creator of the recipe can
+    edit it. On submit, db will be searched
+    for the current recipe by its id. When
+    found, recipe in db will be updated
+    using the new entries in the edit recipe
+    form.
+    """
+    if request.method == "POST":
+        submit = {
+            "category_name": request.form.get("category_name"),
+            "strDrink": request.form.get("drinks_name"),
+            "drinks_description": request.form.get("drinks_description"),
+            "strInstructions": request.form.get("drinks_method"),
+            "strDrinkThumb": request.form.get("img_url"),
+            "strIngredient1": request.form.get("ing1"),
+            "strIngredient2": request.form.get("ing2"),
+            "strIngredient3": request.form.get("ing3"),
+            "strIngredient4": request.form.get("ing4"),
+            "strIngredient5": request.form.get("ing5"),
+            "strIngredient6": request.form.get("ing6"),
+            "strIngredient7": request.form.get("ing7"),
+            "strIngredient8": request.form.get("ing8"),
+            "strIngredient9": request.form.get("ing9"),
+            "strIngredient10": request.form.get("ing10"),
+            "strIngredient11": request.form.get("ing11"),
+            "strIngredient12": request.form.get("ing12"),
+            "strIngredient13": request.form.get("ing13"),
+            "strIngredient14": request.form.get("ing14"),
+            "strIngredient15": request.form.get("ing15"),
+            "strMeasure1": request.form.get("measure1"),
+            "strMeasure2": request.form.get("measure2"),
+            "strMeasure3": request.form.get("measure3"),
+            "strMeasure4": request.form.get("measure4"),
+            "strMeasure5": request.form.get("measure5"),
+            "strMeasure6": request.form.get("measure6"),
+            "strMeasure7": request.form.get("measure7"),
+            "strMeasure8": request.form.get("measure8"),
+            "strMeasure9": request.form.get("measure9"),
+            "strMeasure10": request.form.get("measure10"),
+            "strMeasure11": request.form.get("measure11"),
+            "strMeasure12": request.form.get("measure12"),
+            "strMeasure13": request.form.get("measure13"),
+            "strMeasure14": request.form.get("measure14"),
+            "strMeasure15": request.form.get("measure15"),
+            "created_by": session["user"]
+        }
+        # correct recipe will be updated using submit dictionary
+        mongo.db.drinks.update({"_id": ObjectId(recipe_id)}, submit)
+        # Alert user to successful recipe edit
+        flash("It's Fixed!")
+        return redirect(url_for("profile", username=session['user']))
+
+    # searches db for the correct cocktail recipe by id
+    recipe = mongo.db.drinks.find_one({"_id": ObjectId(recipe_id)})
+    categories = mongo.db.categories.find()
+    return render_template(
+        "edit_drink.html", recipe=recipe, categories=categories)
+
+
 @app.route("/display_drinks.html", methods=["GET"])
 def display_drinks():
 
-    cat_gin = mongo.db.cat_gin.find()
+    drinks = mongo.db.drinks.find()
 
-    return render_template("display_drinks.html", cat_gin=cat_gin)
+    return render_template(
+        "display_drinks.html",
+        drinks=drinks)
 
 
 @app.route("/drink_recipe/<recipe_id>")
@@ -131,7 +226,7 @@ def drink_recipe(recipe_id):
     own recipe page. searches db for correct
     drink id.
     """
-    recipe = mongo.db.drinks.find_one({"idDrink": (recipe_id)})
+    recipe = mongo.db.drinks.find_one({"_id": ObjectId(recipe_id)})
     return render_template("drink_recipe.html", recipe=recipe)
 
 
