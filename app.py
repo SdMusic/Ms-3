@@ -209,6 +209,20 @@ def edit_drink(recipe_id):
         "edit_drink.html", recipe=recipe, categories=categories)
 
 
+@app.route("/delete_drink/<recipe_id>")
+def delete_drink(recipe_id):
+    """
+    Delete drink; creator of the recipe can
+    delete it, from their profile page.
+    the cocktail entry is checked and is
+    removed from db
+    """
+    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    # Alert user to successful recipe deletion
+    flash("Bye bye, Your Cocktail has been annihilated!!")
+    return redirect(url_for("profile", username=session['user']))
+
+
 @app.route("/display_drinks.html", methods=["GET"])
 def display_drinks():
 
