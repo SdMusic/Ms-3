@@ -38,7 +38,8 @@ def register():
 
         register = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
+            "favourite":"",
         }
         mongo.db.users.insert_one(register)
 
@@ -151,6 +152,14 @@ def add_drink():
         "add_drink.html", categories=categories, ingredients=ingredients)
 
 
+@app.route("/favourite/<recipe_id>")
+def favourite(recipe_id):
+    if session["user"]:
+        mongo.db.users.update({"username": session["user"]},
+            {"$push": {"favourite": recipe_id}})
+    return redirect(url_for("profile", username=session['user']))
+
+
 @app.route("/edit_drink/<recipe_id>", methods=["GET", "POST"])
 def edit_drink(recipe_id):
     """
@@ -222,7 +231,7 @@ def delete_drink(recipe_id):
     the cocktail entry is checked and is
     removed from db
     """
-    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    mongo.db.drinks.remove({"_id": ObjectId(recipe_id)})
     # Alert user to successful recipe deletion
     flash("Bye bye, Your Cocktail has been annihilated!!")
     return redirect(url_for("profile", username=session['user']))

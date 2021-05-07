@@ -12,3 +12,4 @@ for (let x = 0; x < divs.length; x++) {
         div.style.display = 'none';
     }
 }}
+
