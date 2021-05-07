@@ -10,7 +10,7 @@
 
 .jumbotron {
     color: white;
-    background-image: url("../images/Homepage-bg.jpg");
+    background-image: url("../images/Homepage-bg.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -62,4 +62,9 @@ h1 {
   font-size: 15px;
   display: block;
   height: 60px;
+}
+
+
+#ingredient-list li{
+    list-style-type: none;
 }

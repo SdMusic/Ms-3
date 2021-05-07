@@ -61,6 +61,7 @@ def login():
                     existing_user["password"], request.form.get("password")):
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(request.form.get("username")))
+                return redirect(url_for("profile", username=session['user']))
             else:
                 flash("Your Password and/or Username is Incorrect")
                 return redirect(url_for("login"))
@@ -79,7 +80,9 @@ def profile(username):
 
     if session["user"]:
         drinks = mongo.db.drinks.find()
-        return render_template("profile.html", username=username, drinks=drinks)
+        return render_template("profile.html",
+                               username=username,
+                               drinks=drinks)
 
     return redirect(url_for("login"))
 
@@ -104,6 +107,7 @@ def add_drink():
             "drinks_description": request.form.get("drinks_description"),
             "strInstructions": request.form.get("drinks_method"),
             "strDrinkThumb": request.form.get("img_url"),
+            "strGlass": request.form.get("glass"),
             "strIngredient1": request.form.get("ing1"),
             "strIngredient2": request.form.get("ing2"),
             "strIngredient3": request.form.get("ing3"),
@@ -164,6 +168,7 @@ def edit_drink(recipe_id):
             "drinks_description": request.form.get("drinks_description"),
             "strInstructions": request.form.get("drinks_method"),
             "strDrinkThumb": request.form.get("img_url"),
+            "strGlass": request.form.get("glass"),
             "strIngredient1": request.form.get("ing1"),
             "strIngredient2": request.form.get("ing2"),
             "strIngredient3": request.form.get("ing3"),
@@ -232,6 +237,7 @@ def display_drinks():
         "display_drinks.html",
         drinks=drinks)
 
+
 @app.route("/search", methods=["GET", "POST"])
 def search():
     """
@@ -241,8 +247,9 @@ def search():
     search = request.form.get("search")
     # searches text index
     drinks = mongo.db.drinks.find({"$text": {"$search": search}})
-    # user brought to cocktails page with filtered results
+    # displays drinks page with filtered results
     return render_template("display_drinks.html", drinks=drinks)
+
 
 @app.route("/drink_recipe/<recipe_id>")
 def drink_recipe(recipe_id):
@@ -272,7 +279,5 @@ def server_error(e):
 
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
-        port=int(os.environ.get("PORT")),
-        debug=True)
-
-    
+            port=int(os.environ.get("PORT")),
+            debug=True)
