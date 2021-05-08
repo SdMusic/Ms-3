@@ -96,6 +96,24 @@ def logout():
     return redirect(url_for("login"))
 
 
+@app.route('/delete_profile')
+def delete_profile():
+
+    # ----- Check if user and Delete profile-----
+
+    if session['user']:
+        mongo.db.users.remove({'username': session['user']})
+        flash('Sorry to see you go!')
+        session.pop('user')
+        return redirect(url_for("display_drinks.html"))
+
+    else:
+        flash("You do not have the premissions!")
+        return redirect(url_for("display_drinks.html"))
+
+
+
+
 @app.route("/add_drink", methods=["GET", "POST"])
 def add_drink():
     if not session.get("user"):
@@ -155,9 +173,9 @@ def add_drink():
 @app.route("/favourite/<recipe_id>")
 def favourite(recipe_id):
     if session["user"]:
-        mongo.db.users.update({"username": session["user"]},
-            {"$push": {"favourite": recipe_id}})
-    return redirect(url_for("profile", username=session['user']))
+        mongo.db.users.update_one({"username": session["user"]},
+                                  {"$push": {"favourite": recipe_id}})
+        return redirect(url_for("profile", username=session['user']))
 
 
 @app.route("/edit_drink/<recipe_id>", methods=["GET", "POST"])
