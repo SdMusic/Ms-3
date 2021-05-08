@@ -38,9 +38,7 @@ def register():
 
         register = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password")),
-            "favourite":"",
-        }
+            "password": generate_password_hash(request.form.get("password")),        }
         mongo.db.users.insert_one(register)
 
         # create new user session cookie
@@ -172,10 +170,32 @@ def add_drink():
 
 @app.route("/favourite/<recipe_id>")
 def favourite(recipe_id):
-    if session["user"]:
-        mongo.db.users.update_one({"username": session["user"]},
-                                  {"$push": {"favourite": recipe_id}})
+    if "user" in session:
+        user = mongo.db.users.find_one({"username": session["user"]})["_id"]
+        mongo.db.users.update({"_id": ObjectId(user)},
+                              {"$push": {"favourite":
+                                         ObjectId(recipe_id)}})
+        return redirect(url_for("drink_recipe", recipe_id=recipe_id))
+    else:
+        flash("You must be logged in to perform that action!")
+        return redirect(url_for("drink_recipe", recipe_id=recipe_id))
+
+
+@app.route("/remove_favourite/<recipe_id>")
+def remove_favourite(recipe_id):
+    """
+    Takes the current recipe ID and removes it from the the user's
+    favourites. Only available if the favourite exists.
+    """
+    if "user" in session:
+        user = mongo.db.users.find_one({"username": session["user"]})["_id"]
+        mongo.db.users.update(
+            {"_id": ObjectId(user)},
+            {"$pull": {"favourite": ObjectId(recipe_id)}})
         return redirect(url_for("profile", username=session['user']))
+    else:
+        flash("You must be logged in to perform that action!")
+        return redirect(url_for("drink_recipe", recipe_id=recipe_id))
 
 
 @app.route("/edit_drink/<recipe_id>", methods=["GET", "POST"])
@@ -257,8 +277,14 @@ def delete_drink(recipe_id):
 
 @app.route("/display_drinks.html", methods=["GET"])
 def display_drinks():
-
     drinks = mongo.db.drinks.find()
+
+# Attempt to retrieve user's favourites as a list
+    try:
+        favourites = mongo.db.users.find_one(
+            {"username_": session["user"]})["favourite"]
+    except:
+        favourites = []
 
     return render_template(
         "display_drinks.html",
@@ -285,8 +311,18 @@ def drink_recipe(recipe_id):
     own recipe page. searches db for correct
     drink id.
     """
-    recipe = mongo.db.drinks.find_one({"_id": ObjectId(recipe_id)})
-    return render_template("drink_recipe.html", recipe=recipe)
+    drinks = mongo.db.drinks.find()
+    recipes = mongo.db.drinks.find_one({"_id": ObjectId(recipe_id)})
+    # Attempt to retrieve user's favourites as a list
+    try:
+        favourite = mongo.db.users.find_one(
+            {"username": session["user"]})["favourite"]
+    except:
+        favourite = []
+    return render_template("drink_recipe.html",
+                           drinks=drinks,
+                           favourites=favourite,
+                           recipe=recipes)
 
 
 @app.errorhandler(403)
