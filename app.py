@@ -36,9 +36,14 @@ def register():
             flash("Username already exists")
             return redirect(url_for("register"))
 
+        # Check that the supplied passwords match
+        if request.form.get("password") != request.form.get("confirm_password"):
+            flash("Supplied passwords do not match.")
+            return render_template("register.html")
+
         register = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password")),        }
+            "password": generate_password_hash(request.form.get("password"))}
         mongo.db.users.insert_one(register)
 
         # create new user session cookie
@@ -108,8 +113,6 @@ def delete_profile():
     else:
         flash("You do not have the premissions!")
         return redirect(url_for("display_drinks.html"))
-
-
 
 
 @app.route("/add_drink", methods=["GET", "POST"])
@@ -288,6 +291,7 @@ def display_drinks():
 
     return render_template(
         "display_drinks.html",
+        favourites=favourite,
         drinks=drinks)
 
 
