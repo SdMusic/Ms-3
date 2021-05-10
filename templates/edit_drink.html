@@ -18,28 +18,28 @@
             <div class="form-group mb-3">
                 <label for="drinks_name">Cocktail Name</label>
                 <input type="text" class="form-control" id="drinks_name" name="drinks_name" minlength="5" maxlength="60"
-                    placeholder="The San Diego Slammer??" required>
+                    placeholder="{{ recipe.strDrink }}" required>
             </div>
             <div class="form-group mb-3">
                 <label for="drinks_description">Description</label>
                 <textarea class="form-control" id="drinks_description" name="drinks_description" rows="3" minlength="5"
-                    maxlength="150" placeholder="This will F*#k you up!!" required></textarea>
+                    maxlength="150" placeholder="{{ recipe.description }}" required></textarea>
             </div>
             <div class="form-group mb-3">
                 <label for="drinks_method">Method</label>
                 <textarea class="form-control" id="drinks_method" name="drinks_method" rows="3" minlength="5"
-                    maxlength="300" placeholder="Bang it in and shake it!! shake a little more, you done!"
+                    maxlength="300" placeholder="{{ recipe.strInstructions }}"
                     required></textarea>
             </div>
             <div class="form-group mb-3">
                 <label for="img_url">Image Url</label>
                 <input type="text" class="form-control" id="img_url" name="img_url" minlength="20"
-                    placeholder="The San Diego Slammer??" required>
+                    placeholder="{{ recipe.strDrinkThumb }}" required>
             </div>
             <div class="form-group mb-3">
                 <label for="img_url">The Glass</label>
                 <input type="text" class="form-control" id="glass" name="glass" minlength="3"
-                    placeholder="Tumbler?" required>
+                    placeholder="{{ recipe.strGlass }}" required>
             </div>
     </div>
     <div class="col">
@@ -57,14 +57,14 @@
                     <th scope="row">1</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing1" id="ing1" list="ingList" placeholder="What are you using?">
+                            <input class="form-control" type="text" name="ing1" id="ing1" list="ingList" placeholder="{{ recipe.strIngredient1 }}">
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input name="measure1" id="measure1" type="text" aria-label="amount"
+                            <input name="measure1" id="measure1" type="text" aria-label="amount" placeholder="{{ recipe.strMeasure1 }}"
                                 class="form-control">
                         </div>
                     </td>
@@ -73,14 +73,14 @@
                     <th scope="row">2</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing2" id="ing2" list="ingList" placeholder="What are you using?">
+                            <input class="form-control" type="text" name="ing2" id="ing2" list="ingList" placeholder="{{ recipe.strIngredient2 }}">
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input name="measure2" id="measure2" type="text" aria-label="amount"
+                            <input name="measure2" id="measure2" type="text" aria-label="amount" placeholder="{{ recipe.strMeasure2 }}"
                                 class="form-control">
                         </div>
                     </td>
@@ -89,14 +89,14 @@
                     <th scope="row">3</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing3" id="ing3" list="ingList" placeholder="What are you using?">
+                            <input class="form-control" type="text" name="ing3" id="ing3" list="ingList" placeholder="{{ recipe.strIngredient3 }}">
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input name="measure3" id="measure3" type="text" aria-label="amount"
+                            <input name="measure3" id="measure3" type="text" aria-label="amount" placeholder="{{ recipe.strMeasure3 }}"
                                 class="form-control">
                         </div>
                     </td>
@@ -105,14 +105,14 @@
                     <th scope="row">4</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing4" id="ing4" list="ingList" placeholder="What are you using?">
+                            <input class="form-control" type="text" name="ing4" id="ing4" list="ingList" placeholder="{{ recipe.strIngredient4 }}">
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input name="measure4" id="measure4" type="text" aria-label="amount"
+                            <input name="measure4" id="measure4" type="text" aria-label="amount" placeholder="{{ recipe.strMeasure4 }}"
                                 class="form-control">
                         </div>
                     </td>
@@ -121,14 +121,14 @@
                     <th scope="row">5</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing5" id="ing5" list="ingList" placeholder="What are you using?">
+                            <input class="form-control" type="text" name="ing5" id="ing5" list="ingList" placeholder="{{ recipe.strIngredient5 }}">
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input name="measure5" id="measure5" type="text" aria-label="amount"
+                            <input name="measure5" id="measure5" type="text" aria-label="amount" placeholder="{{ recipe.strMeasure5 }}"
                                 class="form-control">
                         </div>
                     </td>
@@ -137,14 +137,14 @@
                     <th scope="row">6</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing6" id="ing6" list="ingList" placeholder="What are you using?">
+                            <input class="form-control" type="text" name="ing6" id="ing6" list="ingList" placeholder="{{ recipe.strIngredient6 }}">
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input name="measure6" id="measure6" type="text" aria-label="amount"
+                            <input name="measure6" id="measure6" type="text" aria-label="amount" placeholder="{{ recipe.strMeasure6 }}"
                                 class="form-control">
                         </div>
                     </td>
@@ -153,14 +153,14 @@
                     <th scope="row">7</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing7" id="ing7" list="ingList" placeholder="What are you using?">
+                            <input class="form-control" type="text" name="ing7" id="ing7" list="ingList" placeholder="{{ recipe.strIngredient7 }}">
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input name="measure7" id="measure7" type="text" aria-label="amount"
+                            <input name="measure7" id="measure7" type="text" aria-label="amount" placeholder="{{ recipe.strMeasure7 }}"
                                 class="form-control">
                         </div>
                     </td>
@@ -169,14 +169,14 @@
                     <th scope="row">8</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing8" id="ing8" list="ingList" placeholder="What are you using?">
+                            <input class="form-control" type="text" name="ing8" id="ing8" list="ingList" placeholder="{{ recipe.strIngredient8 }}">
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input name="measure8" id="measure8" type="text" aria-label="amount"
+                            <input name="measure8" id="measure8" type="text" aria-label="amount" placeholder="{{ recipe.strMeasure8 }}"
                                 class="form-control">
                         </div>
                     </td>
@@ -185,14 +185,14 @@
                     <th scope="row">9</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing9" id="ing9" list="ingList" placeholder="What are you using?">
+                            <input class="form-control" type="text" name="ing9" id="ing9" list="ingList" placeholder="{{ recipe.strIngredient9 }}">
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input name="measure9" id="measure9" type="text" aria-label="amount"
+                            <input name="measure9" id="measure9" type="text" aria-label="amount" placeholder="{{ recipe.strMeasure9 }}"
                                 class="form-control">
                         </div>
                     </td>
@@ -201,14 +201,14 @@
                     <th scope="row">10</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing10" id="ing10" list="ingList" placeholder="What are you using?">
+                            <input class="form-control" type="text" name="ing10" id="ing10" list="ingList" placeholder="{{ recipe.strIngredient10 }}">
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input name="measure10" id="measure10" type="text" aria-label="amount"
+                            <input name="measure10" id="measure10" type="text" aria-label="amount" placeholder="{{ recipe.strMeasure10 }}"
                                 class="form-control">
                         </div>
                     </td>
@@ -217,14 +217,14 @@
                     <th scope="row">11</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing11" id="ing11" list="ingList" placeholder="What are you using?">
+                            <input class="form-control" type="text" name="ing11" id="ing11" list="ingList" placeholder="{{ recipe.strIngredient11 }}">
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input name="measure11" id="measure11" type="text" aria-label="amount"
+                            <input name="measure11" id="measure11" type="text" aria-label="amount" placeholder="{{ recipe.strMeasure11 }}"
                                 class="form-control">
                         </div>
                     </td>
@@ -233,14 +233,14 @@
                     <th scope="row">12</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing12" id="ing12" list="ingList" placeholder="What are you using?">
+                            <input class="form-control" type="text" name="ing12" id="ing12" list="ingList" placeholder="{{ recipe.strIngredient12 }}">
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input name="measure12" id="measure12" type="text" aria-label="amount"
+                            <input name="measure12" id="measure12" type="text" aria-label="amount" placeholder="{{ recipe.strMeasure12 }}"
                                 class="form-control">
                         </div>
                     </td>
@@ -249,14 +249,14 @@
                     <th scope="row">13</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing13" id="ing13" list="ingList" placeholder="What are you using?">
+                            <input class="form-control" type="text" name="ing13" id="ing13" list="ingList" placeholder="{{ recipe.strIngredient13 }}">
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input name="measure13" id="measure13" type="text" aria-label="amount"
+                            <input name="measure13" id="measure13" type="text" aria-label="amount" placeholder="{{ recipe.strMeasure13 }}"
                                 class="form-control">
                         </div>
                     </td>
