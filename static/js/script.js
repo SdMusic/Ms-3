@@ -13,3 +13,9 @@ for (let x = 0; x < divs.length; x++) {
     }
 }}
 
+var myModal = document.getElementById('myModal')
+var myInput = document.getElementById('myInput')
+
+myModal.addEventListener('shown.bs.modal', function () {
+  myInput.focus()
+})

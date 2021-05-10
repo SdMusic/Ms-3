@@ -19,6 +19,7 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
+
 @app.route("/drinks")
 def home_page():
     drinks = mongo.db.drinks.find()
