@@ -85,9 +85,15 @@ def profile(username):
 
     if session["user"]:
         drinks = mongo.db.drinks.find()
+        my_favs = mongo.db.users.find_one(
+            {"username": session["user"]})["favourite"]
+        my_fav_id = mongo.db.drinks.find({"_id": {"$in": my_favs}})
+        
         return render_template("profile.html",
                                username=username,
-                               drinks=drinks)
+                               drinks=drinks,
+                               my_favs=my_favs,
+                               my_favs_id=my_fav_id)
 
     return redirect(url_for("login"))
 

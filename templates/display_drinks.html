@@ -22,24 +22,23 @@
 
 <h1 class="display-1 d-flex justify-content-center">All Drinks</h1>
 <div class="row">
-                {% for drink in drinks %}
-                <div class="col-md-3 mb-4">
-                    <div class="card" style="width: 25rem;">
-                        <img src="{{ drink.strDrinkThumb }}" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title d-flex justify-content-center">{{ drink.strDrink }}</h5>
-                            <p class="card-text">{{ drink.category_name }}, category</p>
-                        </div>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item">An item</li>
-                        </ul>
-                        <div class="card-body d-flex justify-content-center">
-                            <a href="{{ url_for('drink_recipe', recipe_id=drink._id) }}"
-                                class="btn btn-red w-50">View
-                                Recipe</a>
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
+    {% for drink in drinks %}
+    <div class="col-md-3 mb-4">
+        <div class="card" style="width: 25rem;">
+            <img src="{{ drink.strDrinkThumb }}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title d-flex justify-content-center">{{ drink.strDrink }}</h5>
+                <p class="card-text">{{ drink.category_name }}, category</p>
             </div>
-        {% endblock %}
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">An item</li>
+            </ul>
+            <div class="card-body d-flex justify-content-center">
+                <a href="{{ url_for('drink_recipe', recipe_id=drink._id) }}" class="btn btn-red w-50">View
+                    Recipe</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
