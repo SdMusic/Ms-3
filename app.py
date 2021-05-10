@@ -308,7 +308,7 @@ def display_drinks():
                            pagination=pagination,
                            )
 
-                           
+
 @app.route("/search", methods=["GET", "POST"])
 def search():
     """

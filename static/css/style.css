@@ -97,3 +97,8 @@ h1 {
         -0.03em 0 black,
         0 -0.03em black;
 }
+
+.pagination{
+    color: slategray;
+    justify-content: center;
+}
