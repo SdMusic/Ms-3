@@ -5,6 +5,7 @@ from flask import (
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from flask_paginate import Pagination, get_page_args
 if os.path.exists("env.py"):
     import env
 
@@ -44,7 +45,9 @@ def register():
 
         register = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))}
+            "password": generate_password_hash(request.form.get("password")),
+            "favourite": []
+            }
         mongo.db.users.insert_one(register)
 
         # create new user session cookie
@@ -88,7 +91,7 @@ def profile(username):
         my_favs = mongo.db.users.find_one(
             {"username": session["user"]})["favourite"]
         my_fav_id = mongo.db.drinks.find({"_id": {"$in": my_favs}})
-        
+
         return render_template("profile.html",
                                username=username,
                                drinks=drinks,
@@ -115,11 +118,11 @@ def delete_profile():
         mongo.db.users.remove({'username': session['user']})
         flash('Sorry to see you go!')
         session.pop('user')
-        return redirect(url_for("display_drinks.html"))
+        return redirect(url_for("display_drinks"))
 
     else:
         flash("You do not have the premissions!")
-        return redirect(url_for("display_drinks.html"))
+        return redirect(url_for("display_drinks"))
 
 
 @app.route("/add_drink", methods=["GET", "POST"])
@@ -285,23 +288,27 @@ def delete_drink(recipe_id):
     return redirect(url_for("profile", username=session['user']))
 
 
-@app.route("/display_drinks.html", methods=["GET"])
+@app.route("/display_drinks")
 def display_drinks():
+    def get_drinks(offset=0, per_page=10):
+        drinks = mongo.db.drinks.find()
+        return drinks[offset: offset + per_page]
     drinks = mongo.db.drinks.find()
+    page, per_page, offset = get_page_args(page_parameter='page',
+                                           per_page_parameter='per_page')
+    per_page = 12
+    total = drinks.count()
+    pagination_drinks = get_drinks(offset=offset, per_page=per_page)
+    pagination = Pagination(page=page, per_page=per_page, total=total,
+                            css_framework='bootstrap4')
+    return render_template("display_drinks.html",
+                           drinks=pagination_drinks,
+                           page=page,
+                           per_page=per_page,
+                           pagination=pagination,
+                           )
 
-# Attempt to retrieve user's favourites as a list
-    try:
-        favourites = mongo.db.users.find_one(
-            {"username_": session["user"]})["favourite"]
-    except:
-        favourites = []
-
-    return render_template(
-        "display_drinks.html",
-        favourites=favourite,
-        drinks=drinks)
-
-
+                           
 @app.route("/search", methods=["GET", "POST"])
 def search():
     """

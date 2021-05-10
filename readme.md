@@ -71,7 +71,7 @@ Create Cocktail
 	image url*
 	the glass to serve it in
 	and ingredients from 1 to 13 from a drop down or predictive text box and the measure
-asterix items are require and from the ingredients  1 an2 are required before being able to upload.
+asterix items are require and from the ingredients  1 and 2 are required before being able to upload.
 
 Edit Recipe
 

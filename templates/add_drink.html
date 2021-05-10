@@ -57,7 +57,7 @@
                     <th scope="row">1</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing1" id="ing1" list="ingList" placeholder="What are you using?">
+                            <input class="form-control" type="text" name="ing1" id="ing1" list="ingList" placeholder="What are you using?" required>
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
@@ -65,7 +65,7 @@
                     <td>
                         <div class="input-group">
                             <input name="measure1" id="measure1" type="text" aria-label="amount"
-                                class="form-control">
+                                class="form-control" required>
                         </div>
                     </td>
                 </tr>
@@ -73,7 +73,7 @@
                     <th scope="row">2</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing2" id="ing2" list="ingList" placeholder="What are you using?">
+                            <input class="form-control" type="text" name="ing2" id="ing2" list="ingList" placeholder="What are you using?" required>
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
@@ -81,7 +81,7 @@
                     <td>
                         <div class="input-group">
                             <input name="measure2" id="measure2" type="text" aria-label="amount"
-                                class="form-control">
+                                class="form-control" required>
                         </div>
                     </td>
                 </tr>
