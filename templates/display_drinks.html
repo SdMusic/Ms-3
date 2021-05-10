@@ -6,7 +6,7 @@
             <!-- search bar form -->
             <form class="search-bar" method="POST" action="{{ url_for('search') }}">
                 <!-- search bar -->
-                <div class="input-group w-57">
+                <div class="input-group">
                     <a href="{{ url_for('display_drinks') }}" class="btn btn-red">Reset</a>
                     <span class="input-group-text border-0" id="search-addon">
                         <i class="fas fa-search"></i>
@@ -26,9 +26,9 @@
 </div>
 <div class="row">
     {% for drink in drinks %}
-    <div class="col-md-3 mb-4">
-        <div class="card" style="width: 25rem;">
-            <img src="{{ drink.strDrinkThumb }}" class="card-img-top" alt="...">
+    <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
+        <div class="card">
+            <img src="{{ drink.strDrinkThumb }}" class="card-img-top img-fluid" alt="...">
             <div class="card-body">
                 <h5 class="card-title d-flex justify-content-center">{{ drink.strDrink }}</h5>
                 <p class="card-text text-center">From the {{ drink.category_name }}, category</p>

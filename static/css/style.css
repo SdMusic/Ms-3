@@ -29,10 +29,10 @@ h1 {
     border-radius: 10px;
     color: white;
     text-shadow:
-        0.07em 0 black,
-        0 0.07em black,
-        -0.07em 0 black,
-        0 -0.07em black;
+        0.07em 0 slategray,
+        0 0.07em slategray,
+        -0.07em 0 slategray,
+        0 -0.07em slategray;
 }
 
 
@@ -99,6 +99,13 @@ h1 {
 }
 
 .pagination{
-    color: slategray;
     justify-content: center;
+}
+.pagination li a{
+    color: slategray;
+}
+
+.page-item.active .page-link{
+    background-color: darkred !important;
+    border-color: slategray;
 }
