@@ -286,8 +286,10 @@ In your IDE of choice, type pip install -r requirements.txt in order to instal
 
 Credits
  content:
-	I scraped off the data from https://www.thecocktaildb.com/api.php to populate the database
+	I scraped off the recipes and images from https://www.thecocktaildb.com/api.php to populate the database
+    favicon is from https://www.favicon-generator.org/search/---/Alcohol
 code snippets:
-	
+	pagination adapted from:
+https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
 Acknowledgements:
 	My tutor chris quinn

@@ -16,6 +16,7 @@
 </head>
 
 <body>
+    <!-- NAVABAR-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">The Cocktail Database</a>
@@ -26,11 +27,13 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav w-100 flex-row-reverse">
                     <a class="nav-link active" aria-current="page" href="{{url_for('home_page')}}">Home</a>
+                    <!--links only available to logged in user-->
                     {% if session.user %}
                         <a class="nav-link" href="{{ url_for('profile', username=session['user']) }}">Profile</a>
                         <a class="nav-link" href="{{ url_for('add_drink') }}">Create</a>
                         <a class="nav-link" href="{{ url_for('logout') }}">Log Out</a>
                         <a class="nav-link" href="{{ url_for('display_drinks') }}">Drink List</a>
+                    <!--links available to all users-->
                     {% else %}
                         <a class="nav-link" href="{{ url_for('register') }}">Register</a>
                         <a class="nav-link" href="{{ url_for('login') }}">Log In</a>
@@ -40,11 +43,12 @@
             </div>
         </div>
     </nav>
+    <!-- hero image with branding text-->
     <div id="container">
         <header>
             <div class="jumbotron jumbotron-fluid">
                 <div class="container">
-                    <h1 class="display-1">The Cocktail Database</h1>
+                    <h1 class="display-1 text-highlight">The Cocktail Database</h1>
                     <p style="max-width: 50%;">Antoine Amédée Peychaud, a French
                         apothecary in New Orleans, served brandy
                         with his bitters (yes, those Peychaud bitters…)
