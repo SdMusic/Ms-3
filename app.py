@@ -234,7 +234,7 @@ def remove_favourite(recipe_id):
         mongo.db.users.update(
             {"_id": ObjectId(user)},
             {"$pull": {"favourite": ObjectId(recipe_id)}})
-        return redirect(url_for("profile", username=session['user']))
+        return redirect(url_for("drink_recipe", recipe_id=recipe_id))
     else:
         flash("You must be logged in to perform that action!")
         return redirect(url_for("drink_recipe", recipe_id=recipe_id))
