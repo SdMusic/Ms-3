@@ -5,20 +5,20 @@ Users can create their own account with allows them to search the database, add 
 
 # User Stories
 Users of the site should be able to:
-Access this site on any device (mobile, desktop or laptop)
-browse all cocktail recipes
-view the details of the recipe including ingredients and method
-add their own cocktail recipes including a URL to show a image of their creations
-edit their cocktail recipe
-delete recipes that they have created
-delete their account
-be able to log out of their account after using the service 
-search the database using key words allowing them to search cocktail name, ingredient or category
+- Access this site on any device (mobile, desktop or laptop)
+- Browse all cocktail recipes
+- View the details of the recipe including ingredients and method
+- Add their own cocktail recipes including a URL to show a image of their creations
+- Edit their cocktail recipe
+- Delete recipes that they have created
+- Delete their account
+- Be able to log out of their account after using the service 
+- Search the database using key words allowing them to search cocktail name, ingredient or category
 
 ___
 
 # Design
-	The site is designed using standard bootstrap with overlaying custom CSS to style the colour scheme. All recipes are displayed on cards showing the image, cocktail name, ingredients and method. Each page contains a matching navigation bar and branded image.
+The site is designed using standard bootstrap with overlaying custom CSS to style the colour scheme. All recipes are displayed on cards showing the image, cocktail name, ingredients and method. Each page contains a matching navigation bar and branded image.
 
 # Framework.
 - Bootstrap
@@ -29,32 +29,32 @@ Colour scheme
 # Wireframes
 
 # Features
-	I have implemented the features that are listed in the user stories and additional features to improve the user experience and functionality of the website.
+I have implemented the features that are listed in the user stories and additional features to improve the user experience and functionality of the website.
 
 ## Registered user dependant navigation
-	The nav-bar options that a user will see is dependant on if the user is a logged in user
-users that are not logged in will see 
-	Home
-	Register
-	Log in 
-	Drinks list
+The nav-bar options that a user will see is dependant on if the user is a logged in user
+Users that are not logged in will see:
+- Home
+- Register
+- Log in 
+- Drinks list
 Logged in users will see:
-	Home
-	Register
-	Log in 
-	Drinks list
-	Create
-	Log Out
+- Home
+- Register
+- Log in 
+- Drinks list
+- Create
+- Log Out
 
 ## Create account(register)
-	Users are able to create their own account providing them further access to the site. There is code in pace to check against existing users as to avoid multiples and that password and users names meet minimum and maximum lengths. I have employed the Werkzeug package which take the input from the password form and generates a SHA256 hash that is then stored in the user's profile in MongoDB. This provides far greater security than storing passwords in plain text. 
+Users are able to create their own account providing them further access to the site. There is code in pace to check against existing users as to avoid multiples and that password and users names meet minimum and maximum lengths. I have employed the Werkzeug package which take the input from the password form and generates a SHA256 hash that is then stored in the user's profile in MongoDB. This provides far greater security than storing passwords in plain text. 
 
 
 ## User Profile Page 
-	Once registered or logged in your are directed to your profile, in this area you are able to link to cocktail creation and see your creations and favourites.
+Once registered or logged in your are directed to your profile, in this area you are able to link to cocktail creation and see your creations and favourites.
 
 ## Delete user account.
-	The user has the ability to remove their account if they no longer wish to be a member of the cocktail database.
+The user has the ability to remove their account if they no longer wish to be a member of the cocktail database.
 
 ## Logout
 Users that have logged into the site may end their session at any time by clicking the 'Logout' button on the nav-bar. Flask ends their session using the session.pop() method and redirects the user to the homepage.
@@ -118,7 +118,7 @@ ___
 ___
 
 ## Testing
-	Due to time constraints, I was  unable to design and implement automatic Unit-testing for this project, and so developer and user manual testing was completed instead. 
+Due to time constraints, I was  unable to design and implement automatic Unit-testing for this project, and so developer and user manual testing was completed instead. 
 
 ### HTML
 - Passing the HTML from all templates and base into the W3C Markup Validator generates numerous errors, but these are expected as the validator is unable to understand the Jinja2 templating that builds most aspects of the page. For the HTML that does not involve Jinja2, no errors have been found.
@@ -238,68 +238,83 @@ SECRET_KEY : <your own secret key>
 
 
 ## Creating the Project
-This project used the Code Institute's student template. A new repository named ms3-pickyourpoison was created which included all branches from the template. The project was developed using the IDE GitPod. Version control software Git was used to commit and push the code to GitHub where it was stored. The following commands were used for this:
-git add filename/directory - This command adds files/directories to the staging area to be committed.
-git commit -m "message here" - This command commits files/directories to the repository. Commit messages should clearly explain the update being committed.
-git push - This command pushes all committed updates/changes into the GitHub repository.
-Deploying to Heroku
+This project used the Code Institute's student template. A new repository named ms3-pickyourpoison was created which included all branches from the template.
+ The project was developed using the IDE GitPod. Version control software Git was used to commit and push the code to GitHub where it was stored. The following commands were used for this:
+- git add filename/directory - This command adds files/directories to the staging area to be committed.
+- git commit -m "message here" - This command commits files/directories to the repository. Commit messages should clearly explain the update being committed.
+- git push - This command pushes all committed updates/changes into the GitHub repository.
+
+#### Deploying to Heroku
 Heroku needs some files to be setup so that it knows what apps and dependencies are needed to run the app.
-use the command "pip3 freeze --local > requirements.txt".
-use the command "echo web: python app.py > Procfile" (ensuring you enter a capital P).
-Add, commit and push.
-Create Heroku App:
-Create an account or login to Heroku.
-Click on the New button on the top right of your dashboard.
-Select Create new app.
-Enter your new unique app name.
-Choose your region.
-Select Create app.
-Connect to GitHub Repository:
-On your new app's page, navigate to the Deploy tab.
-Under Deployment method, select GitHub.
-Under Connect to GitHub (and making sure your GitHub profile is displayed), enter the name of your repository and click Search.
-Once your repo has been found, click Connect.
-Set Environment Variables:
-Navigate to your app's Settings tab.
-Under Config Vars, click Reveal Config Vars.
-You'll need to add the following key:value items;
-key: IP, value: 0.0.0.0
-key: PORT, value: 5000
-key: MONGO_DBNAME, value: (database name you want to connect to)
-key: MONGO_URI, value: (accessed by following the steps below)
-Login to MongoDB.
-Under Data Storage, click Clusters.
-Click Connect on the cluster you want.
-Click Connect your application.
-Copy the link there, replacing < password > with your own one for the database access page, and the database name with the collection/database you want to collect to.
-key: SECRET_KEY, value: (your own secret key)
-custom and random sequence of characters required for maintaining security.
-generated from RandomKeygen for example.
-Automatic Deployment:
-Navigate back to your app's Deployment tab.
-Under Automatic deploys, select the branch you wish to deploy from.
-Click Enable Automatic Deploys.
-Deploying Locally
+- use the command "pip3 freeze --local > requirements.txt".
+- use the command "echo web: python app.py > Procfile" (ensuring you enter a capital P).
+- Add, commit and push.
+
+#### Create Heroku App:
+- Create an account or login to Heroku.
+- Click on the New button on the top right of your dashboard.
+- Select Create new app.
+- Enter your new unique app name.
+- Choose your region.
+- Select Create app.
+
+#### Connect to GitHub Repository:
+
+- On your new app's page, navigate to the Deploy tab.
+- Under Deployment method, select GitHub.
+- Under Connect to GitHub (and making sure your GitHub profile is displayed), enter the name of your repository and click Search.
+- Once your repo has been found, click Connect.
+
+#### Set Environment Variables:
+- Navigate to your app's Settings tab.
+- Under Config Vars, click Reveal Config Vars.
+- You'll need to add the following key:value items;
+- key: IP, value: 0.0.0.0
+- key: PORT, value: 5000
+- key: MONGO_DBNAME, value: (database name you want to connect to)
+- key: MONGO_URI, value: (accessed by following the steps below)
+- Login to MongoDB.
+- Under Data Storage, click Clusters.
+- Click Connect on the cluster you want.
+- Click Connect your application.
+- Copy the link there, replacing < password > with your own one for the database access page, and the database name with the collection/database you want to collect to.
+- key: SECRET_KEY, value: (secret key)
+- custom and random sequence of characters required for maintaining security.
+- generated from RandomKeygen for example.
+
+#### Automatic Deployment:
+- Navigate back to your app's Deployment tab.
+- Under Automatic deploys, select the branch you wish to deploy from.
+- Click Enable Automatic Deploys.
+
+#### Deploying Locally
 Please note that the project will not run locally without a new env.py python file being created which contains the following with their corresponding values: IP, PORT, MONGO_DBNAME, MONGO_URI, SECRET_KEY. For security reasons, these details are not included in this repository.
+
 In order to make a clone, follow these steps:
-Log into GitHub.
-Navigate to the Repositories tab.
-Choose the desired repository.
-Above the list of files, click on the Code drop-down menu.
-Copy the clone URL under the HTTPS tab.
-Open a terminal window in your IDE of choice.
-Change the working directory to whichever location you want the cloned directory to be in.
-Type git clone and then paste the URL that you copied earlier.
-Press enter to create the clone.
-In your IDE of choice, type pip install -r requirements.txt in order to install all required packages for project.
+
+- Log into GitHub.
+- Navigate to the Repositories tab.
+- Choose the desired repository.
+- Above the list of files, click on the Code drop-down menu.
+- Copy the clone URL under the HTTPS tab.
+- Open a terminal window in your IDE of choice.
+- Change the working directory to whichever location you want the cloned directory to be in.
+- Type git clone and then paste the URL that you copied earlier.
+- Press enter to create the clone.
+- In your IDE of choice, type pip install -r requirements.txt in order to install all required packages for project.
 
 ## Credits
- content:
-	I scraped off the recipes and images from https://www.thecocktaildb.com/api.php to populate the database
-    favicon is from https://www.favicon-generator.org/search/---/Alcohol
-    missing picture image from: https://www.nationalpetregister.org/assets/img/no-photo.jpg
-code snippets:
-	pagination adapted from:
-https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
+
+Content:
+- I scraped off the recipes and images to populate the database from
+     https://www.thecocktaildb.com/api.php
+- favicon is from 
+    https://www.favicon-generator.org/search/---/Alcohol
+- Missing picture image from: 
+    https://www.nationalpetregister.org/assets/img/no-photo.jpg
+Code snippets:
+- Pagination adapted from:
+    https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
+
 ## Acknowledgements:
 	My tutor chris quinn
