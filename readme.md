@@ -18,17 +18,26 @@ Users of the site should be able to:
 ___
 
 # Design
+
 The site is designed using standard bootstrap with overlaying custom CSS to style the colour scheme. All recipes are displayed on cards showing the image, cocktail name, ingredients and method. Each page contains a matching navigation bar and branded image.
 
-# Framework.
+## Framework
+
 - Bootstrap
 Is used to provide a clear and modern user interface with minimal need for alteration
 - Flask
 Flask is used as the templating micro-framework that renders all pages on the site.
-Colour scheme
-# Wireframes
+
+## Colour scheme
+
+Colours are based on bootstrap light class and the red #7a1f1f, as with future development i would plan to introduce a dark mode and believe this would a simple yet pleasing aesthetic.
+
+## Wireframes
+
+The wireframes were hand sketched and are available [here]("design/wireframes")  before being translated in to mockup designs using affinity designer available here
 
 # Features
+
 I have implemented the features that are listed in the user stories and additional features to improve the user experience and functionality of the website.
 
 ## Registered user dependant navigation
@@ -84,7 +93,7 @@ Once a user has created a recipe they then have the ablity to edit their creatio
 A identical form to the creation page and is populated with the information that was previously entered. Once they have updated these fielfds they are able to click the subit button and the recipe will be updated in the database.
 
 ## Delete recipe
-	User have the option to remove cocktails they have create by clicking the delete button available to them again if their username matches the created_by field in the database,
+User have the option to remove cocktails they have create by clicking the delete button available to them again if their username matches the created_by field in the database,
 
 Once clicked the cocktail is removed from the database and this cannot be undone the cocktail will be removed from their profile and from the database by which removing access for all other users.
 
@@ -94,17 +103,23 @@ Users are able to search the database on the drinks list page. They are able to 
 
 ## Pagination
 
+While displaying cocktails in full list or under search parameters results are restricted to 12 per page, with naviagtion (pagiantion) buttons available
+above and below the results.
 ___
 
 # Technologies Used
 
 - GitPod online IDE
 - GitHub - Remote repository for all project code with git version control.
+
 ### Front-End Technologies
 - HTML - The fundamental code structure for all webpages.
 - CSS -  Custom CSS was used for this project to alter the default CSS of the bootstrap framework.
-- jQuery 3.3.1 - Javascript framework used to implement custom code and initialize Materialize functions.
+- JavaScript - Used to edit the front-end display
 - Bootstrap 5 - Primary visual framework for this project.
+- Font Awesome - for icons through out the site
+- Affinity suite - Used in planning stage for picture manipulation and mockup design
+
 ### Back-End Technologies
 - Flask - A templating microframework used to dynamically build the pages in this project.
 - Flask paginate - A templating microframework used to dynamically build the pages in this project.
