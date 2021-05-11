@@ -356,7 +356,24 @@ def search():
     # searches text index
     drinks = mongo.db.drinks.find({"$text": {"$search": search}})
     # displays drinks page with filtered results
-    return render_template("display_drinks.html", drinks=drinks)
+    def get_drinks(offset=0, per_page=10):
+        # gets drinks list and set pagination parameters
+        return drinks[offset: offset + per_page]
+    page, per_page, offset = get_page_args(page_parameter='page',
+                                           per_page_parameter='per_page')
+    per_page = 12
+    # sets how many results are displayed per page
+    total = drinks.count()
+    pagination_drinks = get_drinks(offset=offset, per_page=per_page)
+    pagination = Pagination(page=page, per_page=per_page, total=total,
+                            css_framework='bootstrap4')
+    # displays drinks with pagination
+    return render_template("display_drinks.html",
+                           drinks=pagination_drinks,
+                           page=page,
+                           per_page=per_page,
+                           pagination=pagination,
+                           )
 
 
 @app.route("/drink_recipe/<recipe_id>")

@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<h1 class="display-2 d-flex justify-content-center">Create Cocktail</h1>
+<h1 class="display-2 d-flex justify-content-center">Edit Cocktail</h1>
 <div class="row">
     <div class="col">
         <form class="w-100 m-auto" method="POST" action="{{ url_for('edit_drink', recipe_id=recipe._id) }}">
@@ -272,7 +272,7 @@
         </table>
     </div>
     <!-- Submits updated feilds to the database -->
-    <button type="submit" class="btn btn-red w-100">Subit Edit</button>
+    <button type="submit" class="btn btn-red w-100">Submit Edit</button>
     </form>
 </div>
 {% endblock %}
