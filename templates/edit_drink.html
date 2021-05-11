@@ -25,14 +25,14 @@
             <div class="form-group mb-3">
                 <label for="drinks_description">Description</label>
                 <textarea class="form-control" id="drinks_description" name="drinks_description" rows="3" minlength="5"
-                    maxlength="150" value="{{ recipe.description }}" required></textarea>
+                    maxlength="150" required>{{ recipe.drinks_description }}</textarea>
             </div>
             <!-- cocktail method field -->
             <div class="form-group mb-3">
                 <label for="drinks_method">Method</label>
                 <textarea class="form-control" id="drinks_method" name="drinks_method" rows="3" minlength="5"
-                    maxlength="300" value="{{ recipe.strInstructions }}"
-                    required></textarea>
+                    maxlength="300"
+                    required>{{ recipe.strInstructions }}</textarea>
             </div>
             <!-- cocktail image field -->
             <div class="form-group mb-3">

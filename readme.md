@@ -288,6 +288,7 @@ Credits
  content:
 	I scraped off the recipes and images from https://www.thecocktaildb.com/api.php to populate the database
     favicon is from https://www.favicon-generator.org/search/---/Alcohol
+    missing picture image from: https://www.nationalpetregister.org/assets/img/no-photo.jpg
 code snippets:
 	pagination adapted from:
 https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
