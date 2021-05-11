@@ -20,7 +20,6 @@ mongo = PyMongo(app)
 
 
 @app.route("/")
-
 @app.route("/drinks")
 def home_page():
     drinks = mongo.db.drinks.find()
@@ -326,7 +325,7 @@ def display_drinks():
     uses pagination to display 12 per page
     """
     def get_drinks(offset=0, per_page=10):
-    # gets drinks list and set pagination parameters
+        # gets drinks list and set pagination parameters
         drinks = mongo.db.drinks.find()
         return drinks[offset: offset + per_page]
     drinks = mongo.db.drinks.find()
