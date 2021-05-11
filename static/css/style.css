@@ -40,7 +40,7 @@ h1 {
 /* ------- button styling -----*/
 .btn-red {
     background-color: #7a1f1f;
-     box-shadow: inset 0 3px 6px rgba(0,0,0,0.16), 0 4px 6px rgba(0,0,0,0.45);
+    box-shadow: inset 0 3px 6px rgba(0,0,0,0.16), 0 4px 6px rgba(0,0,0,0.45);
     border-radius: 10px;
     color: white;
     text-shadow:
@@ -91,12 +91,16 @@ h1 {
 
 /* ------- cocktail card styling -----*/
 
-.card-img, .card-img-bottom, .card-img-top{
+.card-img-max{
     max-height: 398px;
 }
 
 #ingredient-list li{
     list-style-type: none;
+}
+
+.box-shadow{
+    box-shadow: inset 0 3px 6px rgba(0,0,0,0.16), 0 4px 6px rgba(0,0,0,0.45);
 }
 
 /* ------- icon styling -----*/

@@ -14,7 +14,7 @@
     </div>
     <div class="row d-flex justify-content-center">
         <div class="col-lg-6">
-            <img src="{{ recipe.strDrinkThumb }}" class="card-img-top" alt="{{ recipe.strDrink }} Image">
+            <img src="{{ recipe.strDrinkThumb }}" class="card-img-top img-fluid" alt="{{ recipe.strDrink }} Image">
         </div>
         <div class="col-lg-6">
             <div class="row">
@@ -45,6 +45,8 @@
                 <!-- displays cocktail glass from database -->
                 <h3>Glass:</h3>
                 <p>Served in a {{ recipe.strGlass }}</p>
+                <h3>Description:</h3>
+                <p>{{ recipe.drinks_description }}</p>
             </div>
             
         </div>

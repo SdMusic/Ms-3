@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-md-6 col-sm-12">
-        <div class="card">
+        <div class="card box-shadow">
             <div class="card-body">
                 <h5 class="card-title">Create a drink</h5>
                 <p class="card-text">Got an idea, feeling creative or simply found a recipe you want to keep a hold of? why not.</p>
@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="col-md-6 col-sm-12">
-        <div class="card">
+        <div class="card box-shadow">
             <div class="card-body">
                 <h5 class="card-title">Profile Management</h5>
                 <p class="card-text">We hope your enjoying your experience, need to manage that experience this is the page</p>
@@ -56,8 +56,8 @@
     {% for drink in drinks %}
     {% if drink.created_by == session["user"] %}
     <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-        <div class="card" style="width: 25rem;">
-            <img src="{{ drink.strDrinkThumb }}" class="card-img-top" alt="picture of {{ drink.strDrink }}">
+        <div class="card box-shadow" style="width: 25rem;">
+            <img src="{{ drink.strDrinkThumb }}" class="card-img-top img-fluid card-img-max" alt="picture of {{ drink.strDrink }}">
             <div class="card-body">
                 <h5 class="card-title d-flex justify-content-center">{{ drink.strDrink }}</h5>
                 <p class="card-text"></p>
@@ -105,8 +105,8 @@
     <!-- display drinks added to favourites by user -->
     {% for drink in my_favs_id %}
     <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-        <div class="card" style="width: 25rem;">
-            <img src="{{ drink.strDrinkThumb }}" class="card-img-top" alt="...">
+        <div class="card box-shadow" style="width: 25rem;">
+            <img src="{{ drink.strDrinkThumb }}" class="card-img-top img-fluid card-img-max" alt="...">
             <div class="card-body">
                 <h5 class="card-title d-flex justify-content-center">{{ drink.strDrink }}</h5>
                 <p class="card-text text-center">From the {{ drink.category_name }}, category</p>
