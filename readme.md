@@ -34,11 +34,9 @@ Colours are based on bootstrap light class and the red #7a1f1f, as with future d
 
 ## Wireframes
 
-The wireframes were hand sketched and are available [here]("design/wireframes")  before being translated in to mockup designs using affinity designer available here
+The wireframes were hand sketched and are available [here]("/design/wireframes")  before being translated in to mockup designs using affinity designer available [here]("/design/mock-ups")
 
 # Features
-
-I have implemented the features that are listed in the user stories and additional features to improve the user experience and functionality of the website.
 
 ## Registered user dependant navigation
 The nav-bar options that a user will see is dependant on if the user is a logged in user
