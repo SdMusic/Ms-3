@@ -9,33 +9,39 @@
                 <div class="input-group-prepend w-50">
                     <label class="input-group-text" for="category_name">Choose you Spirit</label>
                 </div>
+                <!-- cocktail catergory field -->
                 <select class="custom-select w-50" name="category_name" id="category_name" required>
                     {% for category in categories %}
                     <option selected value="{{ category.category_name }}">{{ category.category_name }}</option>
                     {% endfor %}
                 </select>
             </div>
+            <!-- cocktail name field -->
             <div class="form-group mb-3">
                 <label for="drinks_name">Cocktail Name</label>
                 <input type="text" class="form-control" id="drinks_name" name="drinks_name" minlength="5" maxlength="60"
                     placeholder="The San Diego Slammer??" required>
             </div>
+            <!-- cocktail description field -->
             <div class="form-group mb-3">
                 <label for="drinks_description">Description</label>
                 <textarea class="form-control" id="drinks_description" name="drinks_description" rows="3" minlength="5"
                     maxlength="150" placeholder="This will F*#k you up!!" required></textarea>
             </div>
+            <!-- cocktail method field -->
             <div class="form-group mb-3">
                 <label for="drinks_method">Method</label>
                 <textarea class="form-control" id="drinks_method" name="drinks_method" rows="3" minlength="5"
                     maxlength="300" placeholder="Bang it in and shake it!! shake a little more, you done!"
                     required></textarea>
             </div>
+            <!-- cocktail image field -->
             <div class="form-group mb-3">
                 <label for="img_url">Image Url</label>
                 <input type="text" class="form-control" id="img_url" name="img_url" minlength="20"
                     placeholder="The San Diego Slammer??" required>
             </div>
+            <!-- cocktail glass field -->
             <div class="form-group mb-3">
                 <label for="img_url">The Glass</label>
                 <input type="text" class="form-control" id="glass" name="glass" minlength="3"
@@ -43,7 +49,7 @@
             </div>
     </div>
     <div class="col">
-
+        <!-- cocktail ingredients field -->
         <table class="table">
             <thead>
                 <tr>
@@ -59,6 +65,7 @@
                         <div class="input-group">
                             <input class="form-control" type="text" name="ing1" id="ing1" list="ingList" placeholder="What are you using?" required>
                             <datalist id="ingList">
+                                <!-- creates a dropdown field for ingredients -->
                                 {% include 'form/select-ing.html' %}
                         </div>
                     </td>
@@ -264,6 +271,7 @@
             </tbody>
         </table>
     </div>
+    <!-- submits data to database to create recipe -->
     <button type="submit" class="btn btn-red w-100">Create</button>
     </form>
 </div>

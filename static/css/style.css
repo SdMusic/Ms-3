@@ -86,6 +86,9 @@ h1 {
   height: 60px;
 }
 
+.card-img, .card-img-bottom, .card-img-top{
+    max-height: 398px;
+}
 
 #ingredient-list li{
     list-style-type: none;
@@ -120,4 +123,9 @@ h1 {
 .page-item.active .page-link{
     background-color: darkred !important;
     border-color: slategray;
+}
+
+.table>:not(caption)>*>*{
+    padding: 0rem .5rem;
+    border-color: white;
 }

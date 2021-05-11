@@ -326,19 +326,19 @@ def display_drinks():
     uses pagination to display 12 per page
     """
     def get_drinks(offset=0, per_page=10):
-        #gets drinks list and set pagination parameters
+    # gets drinks list and set pagination parameters
         drinks = mongo.db.drinks.find()
         return drinks[offset: offset + per_page]
     drinks = mongo.db.drinks.find()
     page, per_page, offset = get_page_args(page_parameter='page',
                                            per_page_parameter='per_page')
     per_page = 12
-    #sets how many results are displayed per page
+    # sets how many results are displayed per page
     total = drinks.count()
     pagination_drinks = get_drinks(offset=offset, per_page=per_page)
     pagination = Pagination(page=page, per_page=per_page, total=total,
                             css_framework='bootstrap4')
-    #displays drinks with pagination
+    # displays drinks with pagination
     return render_template("display_drinks.html",
                            drinks=pagination_drinks,
                            page=page,

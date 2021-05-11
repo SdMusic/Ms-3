@@ -19,6 +19,7 @@
         <div class="col-lg-6">
             <div class="row">
                 <h3>Ingredients:</h3>
+                <!-- displays cocktail recipe ingredients from database -->
                     <ul id="ingredient-list">
                         <li class="display">{{ recipe.strMeasure1 }} {{ recipe.strIngredient1 }}</li>
                         <li class="display">{{ recipe.strMeasure2}} {{ recipe.strIngredient2 }}</li>
@@ -37,9 +38,11 @@
             </div>
             <div class="row">
                 <h3>Method:</h3>
+                <!-- displays cocktail method from database -->
                 <ul class="w-75">
                     {{ recipe.strInstructions }}
                 </ul>
+                <!-- displays cocktail glass from database -->
                 <h3>Glass:</h3>
                 <p>Served in a {{ recipe.strGlass }}</p>
             </div>
@@ -48,13 +51,15 @@
     </div>
 </div>
 
-    <!-- End of COCKTAIL CARD -->
+   <!-- Favourite button displaying if sesson user -->
 <div class="card-body d-flex justify-content-center">
                             {% if session.user %}
                                 {% if recipe._id in favourites %}
+                                <!-- Un-favourite -->
                                 <a href="{{ url_for('remove_favourite', recipe_id=recipe._id) }}">
                                     <i class="fas fa-star favourite"></i></a>
                                 {% else %}
+                                <!-- Favourite -->
                                 <a href="{{ url_for('favourite', recipe_id=recipe._id) }}">
                                     <i class="far fa-star favourite"></i></a>
                                 {% endif %}

@@ -9,12 +9,14 @@
                 <div class="input-group-prepend w-50">
                     <label class="input-group-text" for="category_name">Choose you Spirit</label>
                 </div>
+                <!-- cocktail category field -->
                 <select class="custom-select w-50" name="category_name" id="category_name" required>
                     {% for category in categories %}
                     <option selected value="{{ category.category_name }}">{{ category.category_name }}</option>
                     {% endfor %}
                 </select>
             </div>
+            <!-- cocktail name field -->
             <div class="form-group mb-3">
                 <label for="drinks_name">Cocktail Name</label>
                 <input type="text" class="form-control" id="drinks_name" name="drinks_name" minlength="5" maxlength="60"
@@ -25,17 +27,20 @@
                 <textarea class="form-control" id="drinks_description" name="drinks_description" rows="3" minlength="5"
                     maxlength="150" placeholder="{{ recipe.description }}" required></textarea>
             </div>
+            <!-- cocktail method field -->
             <div class="form-group mb-3">
                 <label for="drinks_method">Method</label>
                 <textarea class="form-control" id="drinks_method" name="drinks_method" rows="3" minlength="5"
                     maxlength="300" placeholder="{{ recipe.strInstructions }}"
                     required></textarea>
             </div>
+            <!-- cocktail image field -->
             <div class="form-group mb-3">
                 <label for="img_url">Image Url</label>
                 <input type="text" class="form-control" id="img_url" name="img_url" minlength="20"
                     placeholder="{{ recipe.strDrinkThumb }}" required>
             </div>
+            <!-- cocktail glass field -->
             <div class="form-group mb-3">
                 <label for="img_url">The Glass</label>
                 <input type="text" class="form-control" id="glass" name="glass" minlength="3"
@@ -43,7 +48,7 @@
             </div>
     </div>
     <div class="col">
-
+        <!-- cocktail ingredient field -->
         <table class="table">
             <thead>
                 <tr>
@@ -56,6 +61,7 @@
                 <tr>
                     <th scope="row">1</th>
                     <td>
+                        <!-- creates a dropdown field for ingredients -->
                         <div class="input-group">
                             <input class="form-control" type="text" name="ing1" id="ing1" list="ingList" placeholder="{{ recipe.strIngredient1 }}">
                             <datalist id="ingList">
@@ -63,6 +69,7 @@
                         </div>
                     </td>
                     <td>
+                        <!-- text box for adding measurement -->
                         <div class="input-group">
                             <input name="measure1" id="measure1" type="text" aria-label="amount" placeholder="{{ recipe.strMeasure1 }}"
                                 class="form-control">
@@ -264,7 +271,8 @@
             </tbody>
         </table>
     </div>
-    <button type="submit" class="btn btn-red w-100">Create</button>
+    <!-- Submits updated feilds to the database -->
+    <button type="submit" class="btn btn-red w-100">Subit Edit</button>
     </form>
 </div>
 {% endblock %}
