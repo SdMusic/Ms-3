@@ -12,7 +12,7 @@
                 <!-- cocktail catergory field -->
                 <select class="custom-select w-50" name="category_name" id="category_name" required>
                     {% for category in categories %}
-                    <option selected value="{{ category.category_name }}">{{ category.category_name }}</option>
+                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
                     {% endfor %}
                 </select>
             </div>
@@ -44,9 +44,10 @@
             <!-- cocktail glass field -->
             <div class="form-group mb-3">
                 <label for="img_url">The Glass</label>
-                <input type="text" class="form-control" id="glass" name="glass" minlength="3"
-                    placeholder="Tumbler?" required>
+                <input type="text" class="form-control" id="glass" name="glass" minlength="3" placeholder="Tumbler?"
+                    required>
             </div>
+        </form>
     </div>
     <div class="col-lg-6 col-md-6">
         <!-- cocktail ingredients field -->
@@ -63,7 +64,8 @@
                     <th scope="row">1</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing1" id="ing1" list="ingList" placeholder="What are you using?" required>
+                            <input class="form-control" type="text" name="ing1" id="ing1" list="ingList"
+                                placeholder="What are you using?" required>
                             <datalist id="ingList">
                                 <!-- creates a dropdown field for ingredients -->
                                 {% include 'form/select-ing.html' %}
@@ -71,8 +73,8 @@
                     </td>
                     <td>
                         <div class="input-group">
-                            <input name="measure1" id="measure1" type="text" aria-label="amount"
-                                class="form-control" required>
+                            <input name="measure1" id="measure1" type="text" aria-label="amount" class="form-control"
+                                required>
                         </div>
                     </td>
                 </tr>
@@ -80,15 +82,16 @@
                     <th scope="row">2</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing2" id="ing2" list="ingList" placeholder="What are you using?" required>
+                            <input class="form-control" type="text" name="ing2" id="ing2" list="ingList"
+                                placeholder="What are you using?" required>
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input name="measure2" id="measure2" type="text" aria-label="amount"
-                                class="form-control" required>
+                            <input name="measure2" id="measure2" type="text" aria-label="amount" class="form-control"
+                                required>
                         </div>
                     </td>
                 </tr>
@@ -96,15 +99,15 @@
                     <th scope="row">3</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing3" id="ing3" list="ingList" placeholder="What are you using?">
+                            <input class="form-control" type="text" name="ing3" id="ing3" list="ingList"
+                                placeholder="What are you using?">
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input name="measure3" id="measure3" type="text" aria-label="amount"
-                                class="form-control">
+                            <input name="measure3" id="measure3" type="text" aria-label="amount" class="form-control">
                         </div>
                     </td>
                 </tr>
@@ -112,15 +115,15 @@
                     <th scope="row">4</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing4" id="ing4" list="ingList" placeholder="What are you using?">
+                            <input class="form-control" type="text" name="ing4" id="ing4" list="ingList"
+                                placeholder="What are you using?">
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input name="measure4" id="measure4" type="text" aria-label="amount"
-                                class="form-control">
+                            <input name="measure4" id="measure4" type="text" aria-label="amount" class="form-control">
                         </div>
                     </td>
                 </tr>
@@ -128,15 +131,15 @@
                     <th scope="row">5</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing5" id="ing5" list="ingList" placeholder="What are you using?">
+                            <input class="form-control" type="text" name="ing5" id="ing5" list="ingList"
+                                placeholder="What are you using?">
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input name="measure5" id="measure5" type="text" aria-label="amount"
-                                class="form-control">
+                            <input name="measure5" id="measure5" type="text" aria-label="amount" class="form-control">
                         </div>
                     </td>
                 </tr>
@@ -144,15 +147,15 @@
                     <th scope="row">6</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing6" id="ing6" list="ingList" placeholder="What are you using?">
+                            <input class="form-control" type="text" name="ing6" id="ing6" list="ingList"
+                                placeholder="What are you using?">
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input name="measure6" id="measure6" type="text" aria-label="amount"
-                                class="form-control">
+                            <input name="measure6" id="measure6" type="text" aria-label="amount" class="form-control">
                         </div>
                     </td>
                 </tr>
@@ -160,15 +163,15 @@
                     <th scope="row">7</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing7" id="ing7" list="ingList" placeholder="What are you using?">
+                            <input class="form-control" type="text" name="ing7" id="ing7" list="ingList"
+                                placeholder="What are you using?">
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input name="measure7" id="measure7" type="text" aria-label="amount"
-                                class="form-control">
+                            <input name="measure7" id="measure7" type="text" aria-label="amount" class="form-control">
                         </div>
                     </td>
                 </tr>
@@ -176,15 +179,15 @@
                     <th scope="row">8</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing8" id="ing8" list="ingList" placeholder="What are you using?">
+                            <input class="form-control" type="text" name="ing8" id="ing8" list="ingList"
+                                placeholder="What are you using?">
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input name="measure8" id="measure8" type="text" aria-label="amount"
-                                class="form-control">
+                            <input name="measure8" id="measure8" type="text" aria-label="amount" class="form-control">
                         </div>
                     </td>
                 </tr>
@@ -192,15 +195,15 @@
                     <th scope="row">9</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing9" id="ing9" list="ingList" placeholder="What are you using?">
+                            <input class="form-control" type="text" name="ing9" id="ing9" list="ingList"
+                                placeholder="What are you using?">
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input name="measure9" id="measure9" type="text" aria-label="amount"
-                                class="form-control">
+                            <input name="measure9" id="measure9" type="text" aria-label="amount" class="form-control">
                         </div>
                     </td>
                 </tr>
@@ -208,15 +211,15 @@
                     <th scope="row">10</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing10" id="ing10" list="ingList" placeholder="What are you using?">
+                            <input class="form-control" type="text" name="ing10" id="ing10" list="ingList"
+                                placeholder="What are you using?">
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input name="measure10" id="measure10" type="text" aria-label="amount"
-                                class="form-control">
+                            <input name="measure10" id="measure10" type="text" aria-label="amount" class="form-control">
                         </div>
                     </td>
                 </tr>
@@ -224,15 +227,15 @@
                     <th scope="row">11</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing11" id="ing11" list="ingList" placeholder="What are you using?">
+                            <input class="form-control" type="text" name="ing11" id="ing11" list="ingList"
+                                placeholder="What are you using?">
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input name="measure11" id="measure11" type="text" aria-label="amount"
-                                class="form-control">
+                            <input name="measure11" id="measure11" type="text" aria-label="amount" class="form-control">
                         </div>
                     </td>
                 </tr>
@@ -240,15 +243,15 @@
                     <th scope="row">12</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing12" id="ing12" list="ingList" placeholder="What are you using?">
+                            <input class="form-control" type="text" name="ing12" id="ing12" list="ingList"
+                                placeholder="What are you using?">
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input name="measure12" id="measure12" type="text" aria-label="amount"
-                                class="form-control">
+                            <input name="measure12" id="measure12" type="text" aria-label="amount" class="form-control">
                         </div>
                     </td>
                 </tr>
@@ -256,15 +259,15 @@
                     <th scope="row">13</th>
                     <td>
                         <div class="input-group">
-                            <input class="form-control" type="text" name="ing13" id="ing13" list="ingList" placeholder="What are you using?">
+                            <input class="form-control" type="text" name="ing13" id="ing13" list="ingList"
+                                placeholder="What are you using?">
                             <datalist id="ingList">
                                 {% include 'form/select-ing.html' %}
                         </div>
                     </td>
                     <td>
                         <div class="input-group">
-                            <input name="measure13" id="measure13" type="text" aria-label="amount"
-                                class="form-control">
+                            <input name="measure13" id="measure13" type="text" aria-label="amount" class="form-control">
                         </div>
                     </td>
                 </tr>
