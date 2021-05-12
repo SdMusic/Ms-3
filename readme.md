@@ -1,6 +1,6 @@
 <img src="design/readme-pic.png" style="margin: auto" />
 
-This website has been created as my data-centric milestone submission for code institutes full stack developer course. The cocktail database is a collaborative cocktail recipe site with the goal of allowing users to discover new cocktails as well as sharing their own cocktail recipes and ideas.
+This website has been created as my data-centric milestone submission for code institutes full stack developer course. [Click](https://milestone3-pf.herokuapp.com/) for the live version. The cocktail database is a collaborative cocktail recipe site with the goal of allowing users to discover new cocktails as well as sharing their own cocktail recipes and ideas.
 Users can create their own account with allows them to search the database, add and edit their own cocktails as well as build a personal collection on their profile of their favourite cocktail recipes.
 
 # User Stories
