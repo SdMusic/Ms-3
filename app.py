@@ -324,7 +324,7 @@ def display_drinks():
     drinks from the drinks collection and
     uses pagination to display 12 per page
     """
-    def get_drinks(offset=0, per_page=10):
+    def get_drinks(offset=0, per_page=12):
         # gets drinks list and set pagination parameters
         drinks = mongo.db.drinks.find()
         return drinks[offset: offset + per_page]
@@ -346,17 +346,26 @@ def display_drinks():
                            )
 
 
+searched = ""
+
+
 @app.route("/search", methods=["GET", "POST"])
 def search():
     """
     Search bar; user can search by cocktail name or category.
     """
     # pulls input from search bar
+    global searched
     search = request.form.get("search")
+    if search is not None:
+        searched = search
+    else:
+        searched = searched
     # searches text index
-    drinks = mongo.db.drinks.find({"$text": {"$search": search}})
+    drinks = mongo.db.drinks.find({"$text": {"$search": searched}})
     # displays drinks page with filtered results
-    def get_drinks(offset=0, per_page=10):
+
+    def get_drinks(offset=0, per_page=12):
         # gets drinks list and set pagination parameters
         return drinks[offset: offset + per_page]
     page, per_page, offset = get_page_args(page_parameter='page',
@@ -373,6 +382,7 @@ def search():
                            page=page,
                            per_page=per_page,
                            pagination=pagination,
+                           search=searched
                            )
 
 
