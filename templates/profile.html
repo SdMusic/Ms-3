@@ -4,48 +4,13 @@
 
 <h1 class="display-1 pt-3 d-flex justify-content-center">{{ username }}'s Cocktails</h1>
 
-<div class="row">
+<div class="row justify-content-center">
     <div class="col-md-6 col-sm-12">
         <div class="card box-shadow">
-            <div class="card-body">
+            <div class="card-body ">
                 <h5 class="card-title">Create a drink</h5>
                 <p class="card-text">Got an idea, feeling creative or simply found a recipe you want to keep a hold of? why not.</p>
                     <a class="btn btn-red" href="{{ url_for('add_drink') }}">Create a Cocktail</a>
-            </div>
-        </div>
-    </div>
-    <div class="col-md-6 col-sm-12">
-        <div class="card box-shadow">
-            <div class="card-body">
-                <h5 class="card-title">Profile Management</h5>
-                <p class="card-text">We hope your enjoying your experience, need to manage that experience this is the page</p>
-                <!-- link to delete profile -->
-                <button class="btn btn-red" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete Profile</button></a>
-                <a href="#" class="btn btn-red">Change Password</a>
-                <!-- delete account confrimation modal-->
-                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="deleteModalLabel1">Are you sure you want to delete your profile?
-                                </h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                If you continue you will not be able to recover your favourite list or creations!
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-red" data-bs-dismiss="modal">Go back</button>
-                                {% if session.user %}
-                                <a href="{{ url_for('delete_profile') }}"
-                                    class="btn btn-red">Delete</a>
-                                {% endif %}
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
@@ -98,5 +63,41 @@
         </div>
     </div>
     {% endfor %}
+</div>
+<div class="row pb-4 justify-content-center">
+    <div class="col-md-6 col-sm-12">
+        <div class="card box-shadow">
+            <div class="card-body">
+                <h5 class="card-title">Profile Management</h5>
+                <p class="card-text">We hope your enjoying your experience, need to manage that experience this is the page</p>
+                <!-- link to delete profile -->
+                <button class="btn btn-red" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete Profile</button></a>
+                <!-- delete account confrimation modal-->
+                <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModal"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="deleteModalLabel1">Are you sure you want to delete your profile?
+                                </h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                    aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                If you continue you will not be able to recover your favourite list or creations!
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-red" data-bs-dismiss="modal">Go back</button>
+                                {% if session.user %}
+                                <a href="{{ url_for('delete_profile') }}"
+                                    class="btn btn-red">Delete</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 {% endblock %}
