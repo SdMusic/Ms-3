@@ -55,7 +55,7 @@ h1 {
 /* ------- log in and register  -----*/
 .stack-top{
         z-index: 9;
-        position: fixed;
+        position: absolute;
         right: 0;
         top: 10%;
         width: 50%;
@@ -116,10 +116,35 @@ h1 {
         0 -0.03em black;
 }
 
-/* ------- pagination navigation -----*/
+/* ------- Text inputs -----*/
 
 .search-bar{
     border-radius: 10px;
+}
+
+.btn-red:focus,
+input-group-text:focus,
+#drinks_description:focus,
+#drinks_method:focus,
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {   
+  border-color: #7a1f1f;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(122, 31, 31, 0.6);
+  outline: 0 none;
 }
 
 /* ------- pagination navigation -----*/
@@ -159,32 +184,17 @@ h1 {
   }
 #hero-text {
     display: none;
-}}
-
-
-.btn-red:focus,
-input-group-text:focus,
-#drinks_description:focus,
-#drinks_method:focus,
-textarea:focus,
-input[type="text"]:focus,
-input[type="password"]:focus,
-input[type="datetime"]:focus,
-input[type="datetime-local"]:focus,
-input[type="date"]:focus,
-input[type="month"]:focus,
-input[type="time"]:focus,
-input[type="week"]:focus,
-input[type="number"]:focus,
-input[type="email"]:focus,
-input[type="url"]:focus,
-input[type="search"]:focus,
-input[type="tel"]:focus,
-input[type="color"]:focus,
-.uneditable-input:focus {   
-  border-color: #7a1f1f;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(122, 31, 31, 0.6);
-  outline: 0 none;
 }
+.stack-top{
+        z-index: 9;
+        position: absolute;
+        right: 10px;
+        top: 25%;
+        width: 100%;
+}
+}
+
+
+
 
 
