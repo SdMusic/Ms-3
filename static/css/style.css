@@ -50,6 +50,11 @@ h1 {
         0 -0.07em black;
 }
 
+.btn-red:hover, .btn-red:focus, .btn-red:focus{
+    background-color: #3d0b0b;
+    color: white;
+}
+
 /* ------- log in and register  -----*/
 .stack-top{
         z-index: 9;
@@ -132,6 +137,10 @@ h1 {
 .table>:not(caption)>*>*{
     padding: 0rem .5rem;
     border-color: white;
+}
+
+.pagination a:hover{
+    color:black;
 }
 
 /* ------- Media Queries -----*/
