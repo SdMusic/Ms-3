@@ -57,7 +57,9 @@
     {% if drink.created_by == session["user"] %}
     <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
         <div class="card box-shadow">
-            <img src="{{ drink.strDrinkThumb }}" class="card-img-top img-fluid card-img-max" alt="picture of {{ drink.strDrink }}">
+            <a href="{{ url_for('drink_recipe', recipe_id=drink._id) }}">
+                <img src="{{ drink.strDrinkThumb }}" class="card-img-top img-fluid card-img-max" alt="picture of {{ drink.strDrink }}">
+            </a>
             <div class="card-body">
                 <h5 class="card-title d-flex justify-content-center">{{ drink.strDrink }}</h5>
                 <p class="card-text"></p>

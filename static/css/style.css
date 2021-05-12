@@ -31,11 +31,7 @@ h1 {
 }
 
 .text-highlight{
-    text-shadow:
-        0.03em 0 black,
-        0 0.03em black,
-        -0.03em 0 black,
-        0 -0.03em black;
+     text-shadow: 0.03em 0 0.4em black, 0 0.03em black, -0.03em 0 black, 0 -0.03em black;
 }
 
 /* ------- button styling -----*/
@@ -122,6 +118,12 @@ h1 {
 
 /* ------- pagination navigation -----*/
 
+.search-bar{
+    border-radius: 10px;
+}
+
+/* ------- pagination navigation -----*/
+
 .pagination{
     justify-content: center;
 }
@@ -158,7 +160,10 @@ h1 {
 #hero-text {
     display: none;
 }}
+
+
 .btn-red:focus,
+input-group-text:focus,
 #drinks_description:focus,
 #drinks_method:focus,
 textarea:focus,
