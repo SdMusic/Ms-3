@@ -48,7 +48,8 @@ def register():
             return render_template("register.html")
 
         # Check that the supplied passwords match
-        if request.form.get("password") != request.form.get("confirm_password"):
+        if request.form.get("password")\
+                != request.form.get("confirm_password"):
             flash("Supplied passwords do not match.")
             return render_template("register.html")
 
