@@ -221,7 +221,7 @@ def add_drink():
 def favourite(recipe_id):
     """
     Takes the current recipe ID and adds it to the user's
-    favourites. Only available as logged in user.
+    favourites array. Only available as logged in user.
     """
     if "user" in session:
         user = mongo.db.users.find_one({"username": session["user"]})["_id"]
@@ -254,7 +254,7 @@ def remove_favourite(recipe_id):
 @app.route("/edit_drink/<recipe_id>", methods=["GET", "POST"])
 def edit_drink(recipe_id):
     """
-    Edit Cocktail; creator of the recipe can
+    Edit Cocktail; the creator of the recipe can
     edit it. On submit, db will be searched
     for the current recipe by its id. When
     found, recipe in db will be updated
@@ -334,6 +334,8 @@ def display_drinks():
     Display drink to all users, collects all
     drinks from the drinks collection and
     uses pagination to display 12 per page
+    pagination is adapted from
+    https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
     """
     def get_drinks(offset=0, per_page=12):
         # gets drinks list and set pagination parameters

@@ -250,26 +250,6 @@ Sign up for a free account on MongoDB and create a new Database . The Collecti
     category_name:<string>
     created_by:<string>
 
-At the terminal prompt, type flask run. Flask should now start running a development server from 'http://127.0.0.1:5000'. Copy and paste this address to your browser and you should now see the project running.
-Remote Deployment
-To implement this project on Heroku, the following must be completed:
-1. Create a requirements.txt file so Heroku can install the required dependencies to run the app.
-sudo pip3 freeze --local > requirements.txt
-My file can be found here.
-2. Create a Procfile to tell Heroku what type of application is being deployed, and how to run it.
-echo web: python run.py > Procfile
-My file can be found here.
-3. Sign up for or log into your Heroku account, create your project app, and click the Deploy tab. Select Connect GitHub as the Deployment Method, and select Enable Automatic Deployment.
-4. In the Heroku Settings tab, click on the Reveal Config Vars button to configure environmental variables as follows:
-IP : 0.0.0.0
-PORT : 8080
-MONGO_URI : <link to your Mongo DB>
-SECRET_KEY : <your own secret key>
-5. The app will now be deployed and built by Heroku and will be ready to run.
-
-
-
-
 ## Creating the Project
 This project used the Code Institute's student template. A new repository named ms3-pickyourpoison was created which included all branches from the template.
  The project was developed using the IDE GitPod. Version control software Git was used to commit and push the code to GitHub where it was stored. The following commands were used for this:
@@ -348,6 +328,8 @@ Content:
 Code snippets:
 - Pagination adapted from:
     https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
-
+- Images
+There may images un-accredited in this segment as test users have had access to the project url and therefore 
+images may be uploaded that are not contained in this list however their urls to which the credit is due will be available through the app itself.
 ## Acknowledgements:
 	My tutor chris quinn
