@@ -46,7 +46,6 @@
                 <input type="text" class="form-control" id="glass" name="glass" minlength="3"
                     value="{{ recipe.strGlass }}" required>
             </div>
-        </form>
     </div>
     <div class="col-lg-6 col-md-6">
         <!-- cocktail ingredient field -->
@@ -288,5 +287,6 @@
     <!-- Submits updated feilds to the database -->
     <button type="submit" class="btn btn-red w-100">Submit Edit</button>
     </form>
+        <a class="btn m-auto w-100 btn-red" href="{{ url_for('profile', username=session['user']) }}">Cancel</a>
 </div>
 {% endblock %}

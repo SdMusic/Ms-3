@@ -2,7 +2,7 @@
 {% block content %}
 
 
-<h1 class="display-2 d-flex justify-content-center">{{ username }}'s Cocktails</h1>
+<h1 class="display-1 pt-3 d-flex justify-content-center">{{ username }}'s Cocktails</h1>
 
 <div class="row">
     <div class="col-md-6 col-sm-12">
@@ -50,7 +50,7 @@
         </div>
     </div>
 </div>
-<h1 class="display-1 d-flex justify-content-center">Your Creations</h1>
+<h1 class="display-1 pt-3 d-flex justify-content-center">Your Creations</h1>
 <!-- display drinks created by user -->
 <div class="row d-flex justify-content-center">
     {% for drink in drinks %}
@@ -70,30 +70,8 @@
                 <a href="{{ url_for('drink_recipe', recipe_id=drink._id) }}" class="btn btn-red w-50">View Recipe</a>
                 <!-- link to edit drink -->
                 <a href="{{ url_for('edit_drink', recipe_id=drink._id) }}"><i class="far fa-edit func-icon"></i></a>
-                <!-- ulink to delete drink -->
-                <a data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fas fa-trash-alt func-icon"></i></a>
-                <!-- delete drink confirmation modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Are you sure you want to delete this?
-                                </h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
-                            </div>
-                            <div class="modal-body">
-                                If you continue you will not be able to recover this cocktail...
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-red" data-bs-dismiss="modal">Go back</button>
-                                <a href="{{ url_for('delete_drink', recipe_id=drink._id) }}"
-                                    class="btn btn-red">Delete</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!-- link to delete drink -->
+                <a href="{{ url_for('drink_recipe', recipe_id=drink._id) }}"><i class="fas fa-trash-alt func-icon"></i></a>
             </div>
         </div>
     </div>

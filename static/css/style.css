@@ -158,7 +158,7 @@ h1 {
 #hero-text {
     display: none;
 }}
-
+.btn-red:focus,
 #drinks_description:focus,
 #drinks_method:focus,
 textarea:focus,
