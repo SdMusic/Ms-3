@@ -28,7 +28,7 @@ count = 600
 for i in range(616):
     response = requests.get(
         "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid={}"
-                .format(count))
+        .format(count))
     count += 1
     drink_list = response.json()
     for g in drink_list["ingredients"]:

@@ -25,7 +25,8 @@ conn = mongo_connect(MONGO_URI)
 coll = conn[DATABASE][COLLECTION]
 
 response = requests.get(
-    "https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=blended%20whiskey")
+    "https://www.thecocktaildb.com/api/json/v1/1/\
+        filter.php?i=blended%20whiskey")
 drink_list = response.json()
 
 for i in drink_list['drinks']:

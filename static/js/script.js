@@ -16,8 +16,3 @@ for (let x = 0; x < divs.length; x++) {
 function goBack() {
   window.history.back();
 }
-
-
-var myModal = document.getElementById('myModal');
-var myInput = document.getElementById('myInput');
-

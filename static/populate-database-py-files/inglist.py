@@ -49,3 +49,4 @@ for j in new_list:
                 full_ing.append(h)
                 h["category_name"] = "Vodka"
                 coll.insert_one(h)
+                
