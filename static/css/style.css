@@ -1,5 +1,6 @@
 body{
     font-family: Bahnschrift SemiCondensed;
+    font-size: 17px;
 }
 
 #container {
@@ -110,6 +111,7 @@ h1 {
 .func-icon{
     color: slategray;
     font-size: 25px;
+    padding-top: 6px;
     padding-left: 40px;
     padding-right: 10px;
     text-shadow:
@@ -181,7 +183,7 @@ input[type="color"]:focus,
 
 /* ------- Media Queries -----*/
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 768px) {
 .navbar-nav {
     display: block;
   }
