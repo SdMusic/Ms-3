@@ -131,17 +131,23 @@ ___
 ___
 
 ## Testing
+
 Due to time constraints, I was  unable to design and implement automatic Unit-testing for this project, and so developer and user manual testing was completed instead. 
 
 ### HTML
-- Passing the HTML from all templates and base into the W3C Markup Validator generates numerous errors, but these are expected as the validator is unable to understand the Jinja2 templating that builds most aspects of the page. For the HTML that does not involve Jinja2, no errors have been found.
+
+- Passing the HTML from all templates and base into the [W3C Markup Validator](https://validator.w3.org/) generates numerous errors, but these are expected as the validator is unable to understand the Jinja templating that builds most aspects of the page. For the HTML that does not involve Jinja, no errors have been found.
 ### CSS
-- The CSS has been validatedby passing the CSS through the W3C CSS Validation Service shows that there are no errors. A no or errors warnings are flagged.
+
+- The CSS has been validatedby passing the CSS through the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) shows that there are no errors. A no or errors warnings are flagged.
 ### Javascript
-- All Javascript was passes throught the Jshit Validator and was found to be syntactically valid.
+
+- All Javascript was passes throught the [JSHint Validator](https://jshint.com/) and was found to be syntactically valid.
 ### Python
-- All Python code was passed through the PEP8 Online validator and is fully PEP8 compliant.
+
+- All Python code was passed through the [PEP8 Online](http://pep8online.com/) validator and is fully PEP8 compliant.
 ### Compatibility
+
 The project was tested to ensure full usability across the following browsers and their mobile equivalents (where applicable):
 - Chrome
 - Edge
@@ -149,6 +155,20 @@ The project was tested to ensure full usability across the following browsers an
 - Opera GX
 - Internet Explorer
 
+### Bugs
+- Bug 1
+Display recipe page displays empty ingredient fields
+- Fix 1
+Code written that targets the ingredients and changes display to none if the inner html is equal to none
+- Bug 2
+Pagination for search criteria only showing first page due to search bar no longer containing the search criteria creating a error  $search format = null
+-  Fix 2
+This was fixed by creating a empty global string variable which is only updated when a search is entered allowing me to set teh value of the variable to the
+searchbar allowing the pagination code to run
+- Bug 3
+Edit page not displaying values in text areas passed in from the edit recipe function
+- Fix 3
+This issue was easily resolved but took me time as text areas do not have value element and needed to be entered as the html text itself
 ___
 
 # Deployment
