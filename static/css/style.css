@@ -142,8 +142,8 @@ h1 {
 .pagination a:hover {
     color:black;
 }
+
 .pagination a:focus{
-    background-color: ;
     border-color: #7a1f1f;
     box-shadow: 0 4px 4px  rgba(122, 31, 31) inset, 0 0 8px rgba(122, 31, 31, 0.6);
     outline: 0 none;
