@@ -6,6 +6,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from flask_paginate import Pagination, get_page_args
+import re
 if os.path.exists("env.py"):
     import env
 
@@ -37,6 +38,15 @@ def register():
             flash("Username already exists")
             return redirect(url_for("register"))
 
+        # Check there are no spaces or special characters
+        username = request.form.get("username").lower()
+        username_check = re.search(r"(?!\-)[\W]+|t+e+s+t+",
+                                   username, re.I)
+        if username_check:
+            flash(
+                "Usernames cannot containin spaces or special characters!")
+            return render_template("register.html")
+
         # Check that the supplied passwords match
         if request.form.get("password") != request.form.get("confirm_password"):
             flash("Supplied passwords do not match.")
@@ -65,7 +75,7 @@ def login():
     Registered users can log in
     by entering their username and password.
     """
-    
+
     # Confirm if username exists in db
     if request.method == "POST":
         existing_user = mongo.db.users.find_one(
