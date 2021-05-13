@@ -35,7 +35,7 @@ Colours are based on bootstrap light class and the red #7a1f1f, as with future d
 
 ## Wireframes
 
-The [wireframes]("wireframes.md")  were hand sketched and are available as a seperate md file. [Mockups]("design/mock-ups.md") are translated
+The [wireframes](wireframes.md)  were hand sketched and are available as a seperate md file. [Mockups](design/mock-ups.md) are translated
  from the wireframe designs using affinity designer to give a more visual representaion of the website.
 
 # Features
