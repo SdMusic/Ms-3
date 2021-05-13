@@ -4,6 +4,7 @@ This website has been created as my data-centric milestone submission for code i
 Users can create their own account with allows them to search the database, add and edit their own cocktails as well as build a personal collection on their profile of their favourite cocktail recipes.
 
 # User Stories
+
 Users of the site should be able to:
 - Access this site on any device (mobile, desktop or laptop)
 - Browse all cocktail recipes
@@ -34,11 +35,13 @@ Colours are based on bootstrap light class and the red #7a1f1f, as with future d
 
 ## Wireframes
 
-The wireframes were hand sketched and are available [here]("/design/wireframes")  before being translated in to mockup designs using affinity designer available [here]("/design/mock-ups")
+The [wireframes]("../wireframes.md")  were hand sketched and are available as a seperate md file. [Mockups]("../design/mock-ups.md") are translated
+ from the wireframe designs using affinity designer to give a more visual representaion of the website.
 
 # Features
 
 ## Registered user dependant navigation
+
 The nav-bar options that a user will see is dependant on if the user is a logged in user
 Users that are not logged in will see:
 - Home
@@ -54,16 +57,20 @@ Logged in users will see:
 - Log Out
 
 ## Create account(register)
+
 Users are able to create their own account providing them further access to the site. There is code in pace to check against existing users as to avoid multiples and that password and users names meet minimum and maximum lengths. I have employed the Werkzeug package which take the input from the password form and generates a SHA256 hash that is then stored in the user's profile in MongoDB. This provides far greater security than storing passwords in plain text. 
 
 
 ## User Profile Page 
+
 Once registered or logged in your are directed to your profile, in this area you are able to link to cocktail creation and see your creations and favourites.
 
 ## Delete user account.
+
 The user has the ability to remove their account if they no longer wish to be a member of the cocktail database.
 
 ## Logout
+
 Users that have logged into the site may end their session at any time by clicking the 'Logout' button on the nav-bar. Flask ends their session using the session.pop() method and redirects the user to the homepage.
 
 ## Browse Cocktails
@@ -75,6 +82,7 @@ All users are able to broswe the Drinks list containg all drinks in the cocktail
 From the drinks list once the user has selected to view recipe they are take to a page containing the full information of the chosen cocktail if the user is logged in they will also have the option to add the drink to their favourites or if it is already present in their favourited list to remove it from favourties.
 
 ## Create Cocktail
+
 Registered users that are logged in will be able to create recipes to be added to the database through this page they are asked to enter
 - cocktail name*
 - Cocktail descrition*
@@ -111,6 +119,7 @@ ___
 - GitHub - Remote repository for all project code with git version control.
 
 ### Front-End Technologies
+
 - HTML - The fundamental code structure for all webpages.
 - CSS -  Custom CSS was used for this project to alter the default CSS of the bootstrap framework.
 - JavaScript - Used to edit the front-end display
@@ -119,6 +128,7 @@ ___
 - Affinity suite - Used in planning stage for picture manipulation and mockup design
 
 ### Back-End Technologies
+
 - Flask - A templating microframework used to dynamically build the pages in this project.
 - Flask paginate - A templating microframework used to dynamically build the pages in this project.
 - Jinja 2.10 - HTTP templating language for Python.
@@ -133,19 +143,24 @@ ___
 ## Testing
 
 Due to time constraints, I was  unable to design and implement automatic Unit-testing for this project, and so developer and user manual testing was completed instead. 
+more information is available the the [testing-document](../testing.md)
 
 ### HTML
 
 - Passing the HTML from all templates and base into the [W3C Markup Validator](https://validator.w3.org/) generates numerous errors, but these are expected as the validator is unable to understand the Jinja templating that builds most aspects of the page. For the HTML that does not involve Jinja, no errors have been found.
+
 ### CSS
 
 - The CSS has been validatedby passing the CSS through the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) shows that there are no errors. A no or errors warnings are flagged.
+
 ### Javascript
 
 - All Javascript was passes throught the [JSHint Validator](https://jshint.com/) and was found to be syntactically valid.
+
 ### Python
 
 - All Python code was passed through the [PEP8 Online](http://pep8online.com/) validator and is fully PEP8 compliant.
+
 ### Compatibility
 
 The project was tested to ensure full usability across the following browsers and their mobile equivalents (where applicable):
@@ -156,6 +171,7 @@ The project was tested to ensure full usability across the following browsers an
 - Internet Explorer
 
 ### Bugs
+
 - Bug 1
 Display recipe page displays empty ingredient fields
 - Fix 1
@@ -251,6 +267,7 @@ Sign up for a free account on MongoDB and create a new Database . The Collecti
     created_by:<string>
 
 ## Creating the Project
+
 This project used the Code Institute's student template. A new repository named ms3-pickyourpoison was created which included all branches from the template.
  The project was developed using the IDE GitPod. Version control software Git was used to commit and push the code to GitHub where it was stored. The following commands were used for this:
 - git add filename/directory - This command adds files/directories to the staging area to be committed.
@@ -258,12 +275,14 @@ This project used the Code Institute's student template. A new repository named
 - git push - This command pushes all committed updates/changes into the GitHub repository.
 
 #### Deploying to Heroku
+
 Heroku needs some files to be setup so that it knows what apps and dependencies are needed to run the app.
 - use the command "pip3 freeze --local > requirements.txt".
 - use the command "echo web: python app.py > Procfile" (ensuring you enter a capital P).
 - Add, commit and push.
 
 #### Create Heroku App:
+
 - Create an account or login to Heroku.
 - Click on the New button on the top right of your dashboard.
 - Select Create new app.
@@ -279,6 +298,7 @@ Heroku needs some files to be setup so that it knows what apps and dependencies 
 - Once your repo has been found, click Connect.
 
 #### Set Environment Variables:
+
 - Navigate to your app's Settings tab.
 - Under Config Vars, click Reveal Config Vars.
 - You'll need to add the following key:value items;
@@ -296,11 +316,13 @@ Heroku needs some files to be setup so that it knows what apps and dependencies 
 - generated from RandomKeygen for example.
 
 #### Automatic Deployment:
+
 - Navigate back to your app's Deployment tab.
 - Under Automatic deploys, select the branch you wish to deploy from.
 - Click Enable Automatic Deploys.
 
-#### Deploying Locally
+#### Deploying Locally:
+
 Please note that the project will not run locally without a new env.py python file being created which contains the following with their corresponding values: IP, PORT, MONGO_DBNAME, MONGO_URI, SECRET_KEY. For security reasons, these details are not included in this repository.
 
 In order to make a clone, follow these steps:
