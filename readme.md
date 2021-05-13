@@ -348,10 +348,14 @@ Content:
 - Missing picture image from: 
     https://www.nationalpetregister.org/assets/img/no-photo.jpg
 Code snippets:
+- Auth from Code institute walkthrough project
 - Pagination adapted from:
     https://gist.github.com/mozillazg/69fb40067ae6d80386e10e105e6803c9
 - Images
 There may images un-accredited in this segment as test users have had access to the project url and therefore 
 images may be uploaded that are not contained in this list however their urls to which the credit is due will be available through the app itself.
+
+
 ## Acknowledgements:
-	My tutor chris quinn
+    My brother for his support and trying his best to break my site.
+	My tutor chris quinn for his support.
